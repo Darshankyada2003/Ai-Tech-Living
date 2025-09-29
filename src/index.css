@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --brand-bg: #ffffff;
+  --brand-surface: #f7f7f7;
+  --brand-text: #0a0a0a;
+  --brand-muted: #525252;
+  --brand-accent: #0a0a0a; /* primary actions in black */
+  --brand-link: #0a0a0a;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: "Helvetica Neue", Segoe UI, Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, Roboto, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--brand-text);
+  background-color: var(--brand-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--brand-link);
+}
+
+.btn-primary {
+  background-color: var(--brand-accent);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  transition: opacity 200ms ease, transform 150ms ease;
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
+}
+
+.container-narrow {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
