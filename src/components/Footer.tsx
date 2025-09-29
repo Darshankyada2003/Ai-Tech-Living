@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/AiTechLiving.png";
+import logo from "../assets/BlackLogo.png";
 import { Instagram, Youtube, Linkedin, Twitter, Facebook } from "lucide-react";
 
 export default function Footer() {
@@ -11,8 +11,8 @@ export default function Footer() {
                     {/* Left: Brand and description */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <img src={logo} alt="AiTech Living Logo" className="h-8 w-auto object-contain" />
-                            <Link to="/" className="font-medium text-[color:var(--brand-text)]">AiTech Living</Link>
+                            <img src={logo} alt="AiTech Living Logo" className="h-12 w-12 object-contain" />
+                            <Link to="/" className="font-bold text-xl text-[color:var(--brand-text)]">AiTech Living</Link>
                         </div>
                         <p className="mt-5 text-sm leading-7">
                             For more than 60 years, the same core belief has guided our work — that

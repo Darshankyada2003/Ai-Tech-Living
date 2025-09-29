@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/BlackLogo.png"
 
 export default function Header() {
@@ -49,10 +49,30 @@ export default function Header() {
                 </div>
 
                 <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-[color:var(--brand-text)]">
-                    <Link to="/" className="transition-colors hover:opacity-80">Home</Link>
-                    <Link to="/about" className="transition-colors hover:opacity-80">About</Link>
-                    <Link to="/services" className="transition-colors hover:opacity-80">Services</Link>
-                    <Link to="/contact" className="transition-colors hover:opacity-80">Contact</Link>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) => `transition-colors hover:opacity-80 pb-1 ${isActive ? 'border-b-2 border-[color:var(--brand-text)]' : ''}`}
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) => `transition-colors hover:opacity-80 pb-1 ${isActive ? 'border-b-2 border-[color:var(--brand-text)]' : ''}`}
+                    >
+                        About
+                    </NavLink>
+                    <NavLink
+                        to="/services"
+                        className={({ isActive }) => `transition-colors hover:opacity-80 pb-1 ${isActive ? 'border-b-2 border-[color:var(--brand-text)]' : ''}`}
+                    >
+                        Services
+                    </NavLink>
+                    <NavLink
+                        to="/contact"
+                        className={({ isActive }) => `transition-colors hover:opacity-80 pb-1 ${isActive ? 'border-b-2 border-[color:var(--brand-text)]' : ''}`}
+                    >
+                        Contact
+                    </NavLink>
                 </nav>
                 <span className="hidden lg:inline-flex">
                     <Link to="/contact" className="text-white font-semibold">Get in touch</Link>
@@ -60,13 +80,37 @@ export default function Header() {
                 <button aria-label="Toggle menu" className="md:hidden text-[color:var(--brand-text)] font-semibold" onClick={() => setOpen(!open)}>☰</button>
             </div>
 
-            {open && (
+                {open && (
                 <div className="md:hidden bg-white border-t border-black/10">
                     <div className="container-narrow flex flex-col py-3 space-y-2 text-[color:var(--brand-text)]">
-                        <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-                        <Link to="/about" onClick={() => setOpen(false)}>About</Link>
-                        <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
-                        <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            onClick={() => setOpen(false)}
+                        >
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            onClick={() => setOpen(false)}
+                        >
+                            About
+                        </NavLink>
+                        <NavLink
+                            to="/services"
+                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            onClick={() => setOpen(false)}
+                        >
+                            Services
+                        </NavLink>
+                        <NavLink
+                            to="/contact"
+                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            onClick={() => setOpen(false)}
+                        >
+                            Contact
+                        </NavLink>
                         <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary inline-block text-center">Book a Demo</Link>
                     </div>
                 </div>
