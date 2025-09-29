@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import hero from "../assets/HomeWorks.png";
 import lighting from "../assets/orluna.png";
 import climate from "../assets/hero.jpg";
@@ -6,6 +7,19 @@ import security from "../assets/ritz.png";
 import shades from "../assets/harness.png";
 
 export default function Services() {
+    const containerReveal = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+        },
+    };
+
+    const itemReveal = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+    };
     const services = [
         {
             title: "Intelligent Lighting",
@@ -65,8 +79,14 @@ export default function Services() {
             >
                 <div className="absolute inset-0 bg-black/25" />
                 <div className="relative z-10 w-full">
-                    <div className="container-narrow py-12 md:py-16">
-                        <div className="max-w-2xl">
+                    <motion.div
+                        className="container-narrow py-12 md:py-16"
+                        variants={containerReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white text-xs mb-3 drop-shadow">AI Home Automation</p>
                             <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight mb-4 drop-shadow">
                                 Effortless living, intelligently orchestrated
@@ -76,13 +96,19 @@ export default function Services() {
                                 anticipate your needs and elevate everyday comfort.
                             </p>
                             <Link to="/contact" className="btn-primary inline-block">Book a Consultation</Link>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Services Grid */}
-            <section className="container-narrow py-14">
+            <motion.section
+                className="container-narrow py-14"
+                variants={containerReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 <h2 className="text-2xl md:text-4xl font-semibold text-[color:var(--brand-text)]">Our Services</h2>
                 <p className="mt-2 text-[color:var(--brand-muted)] max-w-2xl">
                     Tailored solutions that integrate design, hardware, and software—installed by professionals and
@@ -90,82 +116,109 @@ export default function Services() {
                 </p>
                 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {services.map((item, idx) => (
-                        <article
+                        <motion.article
                             key={idx}
                             className="group overflow-hidden rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] hover:border-black/20 transition-colors"
+                            variants={itemReveal}
                         >
                             <div className="relative aspect-[4/3] w-full overflow-hidden">
-                                <img src={item.img} alt={item.alt} className="absolute inset-0 h-full w-full object-cover group-hover:scale-[1.02] transition-transform" />
+                                <motion.img
+                                    src={item.img}
+                                    alt={item.alt}
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                />
                             </div>
                             <div className="p-6">
                                 <h3 className="text-lg md:text-xl font-semibold text-[color:var(--brand-text)]">{item.title}</h3>
                                 <p className="mt-2 text-[color:var(--brand-muted)]">{item.desc}</p>
                             </div>
-                        </article>
+                        </motion.article>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
             {/* Highlights */}
-            <section className="bg-[color:var(--brand-surface)]/50 border-y border-black/10">
+            <motion.section
+                className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
+                variants={containerReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 <div className="container-narrow py-10 md:py-12">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {highlights.map((h, i) => (
-                            <div key={i} className="rounded-xl border border-black/10 bg-white p-5">
+                            <motion.div key={i} className="rounded-xl border border-black/10 bg-white p-5" variants={itemReveal}>
                                 <p className="text-[10px] uppercase tracking-widest opacity-70">{h.label}</p>
                                 <p className="mt-1 text-[color:var(--brand-text)] font-semibold">{h.value}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             {/* Process */}
-            <section className="container-narrow py-14">
+            <motion.section
+                className="container-narrow py-14"
+                variants={containerReveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+            >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                    <div>
+                    <motion.div variants={itemReveal}>
                         <h3 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">How we bring it to life</h3>
                         <ol className="mt-5 space-y-4 text-[color:var(--brand-text)]">
-                            <li className="flex gap-4">
+                            <motion.li className="flex gap-4" variants={itemReveal}>
                                 <span className="h-8 w-8 shrink-0 grid place-items-center rounded-full bg-black/90 text-white">1</span>
                                 <div>
                                     <p className="font-semibold">Consultation</p>
                                     <p className="text-[color:var(--brand-muted)]">We learn your routines, spaces, and goals.</p>
                                 </div>
-                            </li>
-                            <li className="flex gap-4">
+                            </motion.li>
+                            <motion.li className="flex gap-4" variants={itemReveal}>
                                 <span className="h-8 w-8 shrink-0 grid place-items-center rounded-full bg-black/90 text-white">2</span>
                                 <div>
                                     <p className="font-semibold">Design & Scope</p>
                                     <p className="text-[color:var(--brand-muted)]">System blueprint, device selection, and aesthetics.</p>
                                 </div>
-                            </li>
-                            <li className="flex gap-4">
+                            </motion.li>
+                            <motion.li className="flex gap-4" variants={itemReveal}>
                                 <span className="h-8 w-8 shrink-0 grid place-items-center rounded-full bg-black/90 text-white">3</span>
                                 <div>
                                     <p className="font-semibold">Installation</p>
                                     <p className="text-[color:var(--brand-muted)]">Professional install with minimal disruption.</p>
                                 </div>
-                            </li>
-                            <li className="flex gap-4">
+                            </motion.li>
+                            <motion.li className="flex gap-4" variants={itemReveal}>
                                 <span className="h-8 w-8 shrink-0 grid place-items-center rounded-full bg-black/90 text-white">4</span>
                                 <div>
                                     <p className="font-semibold">Personalization</p>
                                     <p className="text-[color:var(--brand-muted)]">Scenes, schedules, and AI routines tuned to you.</p>
                                 </div>
-                            </li>
+                            </motion.li>
                         </ol>
                         <div className="mt-6">
                             <Link to="/contact" className="btn-primary inline-block">Start your project</Link>
                         </div>
-                    </div>
-                    <div>
-                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
-                            <img src={shades} alt="Installation and setup" className="absolute inset-0 h-full w-full object-cover" />
+                    </motion.div>
+                    <motion.div variants={itemReveal}>
+                        <div className="relative aspect:[16/10] md:aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
+                            <motion.img
+                                src={shades}
+                                alt="Installation and setup"
+                                className="absolute inset-0 h-full w-full object-cover"
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                            />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 }

@@ -1,8 +1,24 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import hero from "../assets/hero.jpg";
 import lifestyle from "../assets/harness.png";
 
 export default function About() {
+    const containerReveal: Variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+        },
+    };
+
+    const itemReveal: Variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+    };
+
     return (
         <div className="relative">
             {/* Hero */}
@@ -16,8 +32,14 @@ export default function About() {
             >
                 <div className="absolute inset-0 bg-black/30"></div>
                 <div className="relative z-10 w-full">
-                    <div className="container-narrow py-14">
-                        <div className="max-w-2xl">
+                    <motion.div
+                        className="container-narrow py-14"
+                        variants={containerReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white/90 text-xs mb-3">About Us</p>
                             <h1 className="text-white text-4xl md:text-6xl font-semibold leading-tight mb-4">
                                 Elevating everyday living with thoughtful automation
@@ -25,16 +47,22 @@ export default function About() {
                             <p className="text-white/90 text-base md:text-lg">
                                 We blend architecture, lighting, and intelligent control to create effortless, beautiful homes.
                             </p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
 
             <main>
                 {/* Story */}
-                <section className="container-narrow py-14">
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                        <div>
+                        <motion.div variants={itemReveal}>
                             <p className="uppercase tracking-widest text-[color:var(--brand-muted)] text-xs mb-3">Our Story</p>
                             <h2 className="text-[color:var(--brand-text)] text-3xl md:text-4xl font-semibold leading-tight mb-5">
                                 Crafting calm, intuitive homes
@@ -45,64 +73,98 @@ export default function About() {
                             <p className="text-[color:var(--brand-muted)] leading-7">
                                 We work closely with homeowners, architects, and designers to deliver seamless experiences that feel natural from day one—and continue to adapt as your needs evolve.
                             </p>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div variants={itemReveal}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
-                                <img src={lifestyle} alt="Lifestyle interior" className="absolute inset-0 h-full w-full object-cover" />
+                                <motion.img
+                                    src={lifestyle}
+                                    alt="Lifestyle interior"
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
+                                />
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Values */}
-                <section className="bg-[color:var(--brand-surface)]/60 border-y border-black/10">
+                <motion.section
+                    className="bg-[color:var(--brand-surface)]/60 border-y border-black/10"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="container-narrow py-12">
                         <h3 className="text-[color:var(--brand-text)] text-xl font-semibold">What we value</h3>
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <article>
+                            <motion.article variants={itemReveal}>
                                 <h4 className="text-[color:var(--brand-text)] font-semibold">Design-first</h4>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">
                                     Technology that complements architecture—discreet, elegant, and timeless.
                                 </p>
-                            </article>
-                            <article>
+                            </motion.article>
+                            <motion.article variants={itemReveal}>
                                 <h4 className="text-[color:var(--brand-text)] font-semibold">Effortless control</h4>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">
                                     Scenes and schedules that anticipate needs and simplify routines.
                                 </p>
-                            </article>
-                            <article>
+                            </motion.article>
+                            <motion.article variants={itemReveal}>
                                 <h4 className="text-[color:var(--brand-text)] font-semibold">Sustainable comfort</h4>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">
                                     Daylight, shading, and tunable light working together for well-being.
                                 </p>
-                            </article>
+                            </motion.article>
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Stats */}
-                <section className="container-narrow py-12">
+                <motion.section
+                    className="container-narrow py-12"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-                        <div>
+                        <motion.div variants={itemReveal}>
                             <p className="text-3xl md:text-4xl font-semibold text-[color:var(--brand-text)]">10+ yrs</p>
                             <p className="text-[color:var(--brand-muted)] text-sm mt-1">Of delivering smart homes</p>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div variants={itemReveal}>
                             <p className="text-3xl md:text-4xl font-semibold text-[color:var(--brand-text)]">250+ </p>
                             <p className="text-[color:var(--brand-muted)] text-sm mt-1">Completed projects</p>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div variants={itemReveal}>
                             <p className="text-3xl md:text-4xl font-semibold text-[color:var(--brand-text)]">98%</p>
                             <p className="text-[color:var(--brand-muted)] text-sm mt-1">Client satisfaction</p>
-                        </div>
+                        </motion.div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* CTA */}
-                <section className="container-narrow pb-16">
+                <motion.section
+                    className="container-narrow pb-16"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="relative w-full overflow-hidden rounded-xl border border-black/10">
-                        <img src={lifestyle} alt="Light-filled space" className="h-full w-full object-cover" />
+                        <motion.img
+                            src={lifestyle}
+                            alt="Light-filled space"
+                            className="h-full w-full object-cover"
+                            initial={{ scale: 1 }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                            transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
+                        />
                         <div className="absolute inset-0 bg-black/30" />
                         <div className="absolute inset-0 flex items-center">
                             <div className="p-6 md:p-10 max-w-xl">
@@ -117,7 +179,7 @@ export default function About() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </motion.section>
             </main>
         </div>
     );

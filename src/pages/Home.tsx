@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import heroImage from "../assets/HomeWorks.png"; // make sure the file exists
 // import purest from "../assets/hero.jpg"; // make sure the file exists
 import harness from "../assets/harness.png"; // make sure the file exists
@@ -7,6 +8,19 @@ import press from "../assets/press.png"; // make sure the file exists
 import ritz from "../assets/ritz.png"; // make sure the file exists
 
 export default function Home() {
+    const containerReveal = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+        },
+    };
+
+    const itemReveal = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+    };
     return (
         <div className="relative">
             <header
@@ -19,8 +33,14 @@ export default function Home() {
             >
                 <div className="absolute inset-0" aria-hidden="true"></div>
                 <div className="relative z-10 w-full">
-                    <div className="container-narrow py-16">
-                        <div className="max-w-2xl">
+                    <motion.div
+                        className="container-narrow py-16"
+                        variants={containerReveal}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.2 }}
+                    >
+                        <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white text-xs mb-3 drop-shadow-lg">Luxury Automated Blinds</p>
                             <h1 className="text-white text-4xl md:text-6xl font-semibold leading-tight mb-5 drop-shadow-lg">
                                 Shape daylight with simple elegance
@@ -28,15 +48,21 @@ export default function Home() {
                             <p className="text-white text-base md:text-lg mb-8 drop-shadow-lg">
                                 Automated window treatments that complement your architecture and elevate everyday living.
                             </p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </header>
             <main>
                 {/* Hero: text left, image right */}
-                <section className="container-narrow py-14">
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                        <div>
+                        <motion.div variants={itemReveal}>
                             <p className="uppercase tracking-widest text-[color:var(--brand-muted)] text-xs mb-3">Luxury Automated Blinds</p>
                             <h2 className="text-[color:var(--brand-text)] text-4xl md:text-5xl font-semibold leading-tight mb-5">
                                 The purest expression of modern living
@@ -48,28 +74,48 @@ export default function Home() {
                                 <Link to="/contact" className="btn-primary">Book a Demo</Link>
                                 <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline">Explore Products</Link>
                             </div>
-                        </div>
-                        <div>
+                        </motion.div>
+                        <motion.div variants={itemReveal}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
-                                <img src={harness} alt="Lifestyle interior" className="absolute inset-0 h-full w-full object-cover" />
+                                <motion.img
+                                    src={harness}
+                                    alt="Lifestyle interior"
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                />
                                 {/* <button aria-label="Play video" className="absolute inset-0 m-auto h-14 w-14 rounded-full bg-white/90 text-black grid place-items-center shadow-md">
                                     ▶
                                 </button> */}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Stories section */}
-                <section className="bg-[color:var(--brand-surface)]/50 border-y border-black/10">
+                <motion.section
+                    className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="container-narrow py-12">
                         <h2 className="text-[color:var(--brand-text)] text-xl font-semibold">Stories</h2>
                         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Card 1 */}
-                            <article>
+                            <motion.article variants={itemReveal}>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
-                                        <img src={orluna} alt="Story 1" className="absolute inset-0 h-full w-full object-cover" />
+                                        <motion.img
+                                            src={orluna}
+                                            alt="Story 1"
+                                            className="absolute inset-0 h-full w-full object-cover"
+                                            initial={{ scale: 1 }}
+                                            whileHover={{ scale: 1.05 }}
+                                            transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                        />
                                     </div>
                                     <figcaption>
                                         <p className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Lutron | Orluna</p>
@@ -78,13 +124,20 @@ export default function Home() {
                                         </p>
                                     </figcaption>
                                 </figure>
-                            </article>
+                            </motion.article>
 
                             {/* Card 2 */}
-                            <article>
+                            <motion.article variants={itemReveal}>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
-                                        <img src={ritz} alt="Story 2" className="absolute inset-0 h-full w-full object-cover" />
+                                        <motion.img
+                                            src={ritz}
+                                            alt="Story 2"
+                                            className="absolute inset-0 h-full w-full object-cover"
+                                            initial={{ scale: 1 }}
+                                            whileHover={{ scale: 1.05 }}
+                                            transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                        />
                                     </div>
                                     <figcaption>
                                         <p className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Project | Ritz Tower</p>
@@ -93,13 +146,20 @@ export default function Home() {
                                         </p>
                                     </figcaption>
                                 </figure>
-                            </article>
+                            </motion.article>
 
                             {/* Card 3 */}
-                            <article>
+                            <motion.article variants={itemReveal}>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
-                                        <img src={press} alt="Story 3" className="absolute inset-0 h-full w-full object-cover" />
+                                        <motion.img
+                                            src={press}
+                                            alt="Story 3"
+                                            className="absolute inset-0 h-full w-full object-cover"
+                                            initial={{ scale: 1 }}
+                                            whileHover={{ scale: 1.05 }}
+                                            transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                        />
                                     </div>
                                     <figcaption>
                                         <p className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Press | Design Global</p>
@@ -108,16 +168,29 @@ export default function Home() {
                                         </p>
                                     </figcaption>
                                 </figure>
-                            </article>
+                            </motion.article>
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Large feature image with text + CTA */}
-                <section className="container-narrow py-14">
-                    <figure>
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    <motion.figure variants={itemReveal}>
                         <div className="relative w-full overflow-hidden rounded-xl border border-black/10">
-                            <img src={harness} alt="Kitchen and dining with natural light" className="h-full w-full object-cover" />
+                            <motion.img
+                                src={harness}
+                                alt="Kitchen and dining with natural light"
+                                className="h-full w-full object-cover"
+                                initial={{ scale: 1 }}
+                                whileHover={{ scale: 1.03 }}
+                                transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                            />
                         </div>
                         <figcaption className="mt-6 max-w-2xl">
                             <h3 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">Underline space with light</h3>
@@ -127,11 +200,17 @@ export default function Home() {
                             </p>
                             <Link to="/services" className="btn-primary mt-5 inline-block">Explore Lighting</Link>
                         </figcaption>
-                    </figure>
-                </section>
+                    </motion.figure>
+                </motion.section>
 
                 {/* Why AiTech Living - Features Grid */}
-                <section className="container-narrow py-14">
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <header className="max-w-2xl">
                         <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">Why AiTech Living</h2>
                         <p className="mt-3 text-[color:var(--brand-muted)] leading-7">
@@ -139,106 +218,171 @@ export default function Home() {
                         </p>
                     </header>
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <article className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        <motion.article className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <h3 className="text-[color:var(--brand-text)] font-semibold">Adaptive Automation</h3>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Schedules and scenes that learn routines and adjust to natural light.</p>
-                        </article>
-                        <article className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.article>
+                        <motion.article className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <h3 className="text-[color:var(--brand-text)] font-semibold">Effortless Control</h3>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Intuitive apps, voice assistants, and elegant keypads for every room.</p>
-                        </article>
-                        <article className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.article>
+                        <motion.article className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <h3 className="text-[color:var(--brand-text)] font-semibold">Whole‑Home Reliability</h3>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Pro‑grade hardware and secure local control keep your system responsive.</p>
-                        </article>
-                        <article className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.article>
+                        <motion.article className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <h3 className="text-[color:var(--brand-text)] font-semibold">Design‑Led Finish</h3>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Materials and profiles that complement premium interiors and architecture.</p>
-                        </article>
+                        </motion.article>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* How it works */}
-                <section className="bg-[color:var(--brand-surface)]/50 border-y border-black/10">
+                <motion.section
+                    className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="container-narrow py-14">
                         <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">How it works</h2>
                         <ol className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 list-none">
-                            <li className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            <motion.li className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <p className="text-[10px] uppercase tracking-widest opacity-70">Step 1</p>
                                 <h3 className="mt-2 font-semibold text-[color:var(--brand-text)]">Consult & Design</h3>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">We map your rooms, routines, and goals to craft a tailored plan.</p>
-                            </li>
-                            <li className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            </motion.li>
+                            <motion.li className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <p className="text-[10px] uppercase tracking-widest opacity-70">Step 2</p>
                                 <h3 className="mt-2 font-semibold text-[color:var(--brand-text)]">Install & Configure</h3>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Certified technicians install, integrate, and set up scenes and schedules.</p>
-                            </li>
-                            <li className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            </motion.li>
+                            <motion.li className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <p className="text-[10px] uppercase tracking-widest opacity-70">Step 3</p>
                                 <h3 className="mt-2 font-semibold text-[color:var(--brand-text)]">Support & Evolve</h3>
                                 <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">We refine automations over time and keep everything running smoothly.</p>
-                            </li>
+                            </motion.li>
                         </ol>
                     </div>
-                </section>
+                </motion.section>
+
+                {/* AiTech Living – Intelligent Home Automation (image + content) */}
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <motion.figure variants={itemReveal}>
+                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
+                                <motion.img
+                                    src={heroImage}
+                                    alt="Modern living room with automated blinds and lighting"
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    initial={{ scale: 1 }}
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                                />
+                            </div>
+                            <figcaption className="sr-only">A showcase of AiTech Living automation in a contemporary home.</figcaption>
+                        </motion.figure>
+                        <motion.div variants={itemReveal}>
+                            <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">Intelligent home automation, beautifully integrated</h2>
+                            <p className="mt-3 text-[color:var(--brand-muted)] leading-7">
+                                From sunrise to evening wind‑down, AiTech Living orchestrates light, blinds, and ambience so your home feels effortless every day.
+                            </p>
+                            <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <li className="rounded-lg border border-black/10 bg-white/60 p-3 text-sm text-[color:var(--brand-text)]">Scene‑based lighting for every moment</li>
+                                <li className="rounded-lg border border-black/10 bg-white/60 p-3 text-sm text-[color:var(--brand-text)]">Automated shades that track natural light</li>
+                                <li className="rounded-lg border border-black/10 bg-white/60 p-3 text-sm text-[color:var(--brand-text)]">Quiet, reliable hardware with local control</li>
+                                <li className="rounded-lg border border-black/10 bg-white/60 p-3 text-sm text-[color:var(--brand-text)]">Voice, app, and keypad control options</li>
+                            </ul>
+                            <div className="mt-6 flex items-center gap-3">
+                                <Link to="/contact" className="btn-primary">Start Your Project</Link>
+                                <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline">View Solutions</Link>
+                            </div>
+                        </motion.div>
+                    </div>
+                </motion.section>
 
                 {/* Testimonials */}
-                <section className="bg-[color:var(--brand-surface)]/50 border-y border-black/10">
+                <motion.section
+                    className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="container-narrow py-14">
                         <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">What clients say</h2>
                         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <figure className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            <motion.figure className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <blockquote className="text-[color:var(--brand-text)] leading-7">“Rooms feel calmer and brighter — automations just work in the background.”</blockquote>
                                 <figcaption className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Homeowner, Kensington</figcaption>
-                            </figure>
-                            <figure className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            </motion.figure>
+                            <motion.figure className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <blockquote className="text-[color:var(--brand-text)] leading-7">“They coordinated with our contractor and delivered a flawless finish.”</blockquote>
                                 <figcaption className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Interior Designer, Chelsea</figcaption>
-                            </figure>
-                            <figure className="rounded-xl border border-black/10 bg-white/60 p-6">
+                            </motion.figure>
+                            <motion.figure className="rounded-xl border border-black/10 bg-white/60 p-6" variants={itemReveal}>
                                 <blockquote className="text-[color:var(--brand-text)] leading-7">“Lighting scenes transform the space — mornings and evenings feel different.”</blockquote>
                                 <figcaption className="mt-3 text-[10px] uppercase tracking-widest opacity-70">Architect, Marylebone</figcaption>
-                            </figure>
+                            </motion.figure>
                         </div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* FAQ */}
-                <section className="container-narrow py-14">
+                <motion.section
+                    className="container-narrow py-14"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">Frequently asked questions</h2>
                     <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <details className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        <motion.details className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <summary className="cursor-pointer font-medium text-[color:var(--brand-text)]">Do I need wiring in place?</summary>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">We support retrofit wireless options and hard‑wired systems for new builds.</p>
-                        </details>
-                        <details className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.details>
+                        <motion.details className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <summary className="cursor-pointer font-medium text-[color:var(--brand-text)]">Will this work without internet?</summary>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Yes. Core functions run locally; remote access requires a secure connection.</p>
-                        </details>
-                        <details className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.details>
+                        <motion.details className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <summary className="cursor-pointer font-medium text-[color:var(--brand-text)]">What does maintenance look like?</summary>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">We monitor systems proactively and provide scheduled health checks.</p>
-                        </details>
-                        <details className="rounded-xl border border-black/10 bg-white/60 p-5">
+                        </motion.details>
+                        <motion.details className="rounded-xl border border-black/10 bg-white/60 p-5" variants={itemReveal}>
                             <summary className="cursor-pointer font-medium text-[color:var(--brand-text)]">How long is a typical project?</summary>
                             <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">Smaller homes complete in days; larger estates may span several weeks.</p>
-                        </details>
+                        </motion.details>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Bottom CTA */}
-                <section className="bg-[color:var(--brand-surface)]/50 border-y border-black/10">
+                <motion.section
+                    className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
+                    variants={containerReveal}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                >
                     <div className="container-narrow py-14">
-                        <div className="max-w-2xl">
+                        <motion.div className="max-w-2xl" variants={itemReveal}>
                             <h2 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">Ready to shape light and comfort?</h2>
                             <p className="mt-3 text-[color:var(--brand-muted)] leading-7">Book a consultation and explore a system designed for the way you live.</p>
-                            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                            <div className="mt-6 flex items-center gap-3">
                                 <Link to="/contact" className="btn-primary">Book a Consultation</Link>
                                 <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline">See Services</Link>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </section>
+                </motion.section>
             </main>
         </div>
     );

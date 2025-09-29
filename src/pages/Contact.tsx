@@ -1,18 +1,39 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
+	const containerReveal = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+		},
+	};
+
+	const itemReveal = {
+		hidden: { opacity: 0, y: 20 },
+		visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+	};
+
 	return (
-		<section className="container-narrow py-16">
-			<div className="max-w-3xl">
+		<motion.section
+			className="container-narrow py-16"
+			variants={containerReveal}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, amount: 0.2 }}
+		>
+			<motion.div className="max-w-3xl" variants={itemReveal}>
 				<h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-[color:var(--brand-text)]">Get in touch</h1>
 				<p className="mt-3 text-[color:var(--brand-muted)]">
 					We’d love to hear about your project or question. Fill out the form and our team will get back to you within 1–2 business days.
 				</p>
-			</div>
+			</motion.div>
 
 			<div className="mt-10 grid gap-8 md:grid-cols-2">
 				{/* Contact details */}
-				<div className="rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] p-6 md:p-7">
+				<motion.div className="rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] p-6 md:p-7" variants={itemReveal}>
 					<h2 className="text-xl font-semibold text-[color:var(--brand-text)]">Contact details</h2>
 					<ul className="mt-4 space-y-3 text-sm">
 						<li className="flex items-start gap-3">
@@ -44,10 +65,10 @@ export default function Contact() {
 						</li>
 					</ul>
 					<p className="mt-6 text-xs text-[color:var(--brand-muted)]">Business hours: Mon–Fri, 9:00–18:00</p>
-				</div>
+				</motion.div>
 
 				{/* Contact form */}
-				<form className="rounded-2xl border border-black/10 p-6 md:p-7 space-y-4 bg-white/70">
+				<motion.form className="rounded-2xl border border-black/10 p-6 md:p-7 space-y-4 bg-white/70" variants={itemReveal}>
 					<div>
 						<label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[color:var(--brand-text)]">Full name</label>
 						<input id="name" name="name" required type="text" placeholder="Your name" className="w-full p-3 rounded-xl bg-[color:var(--brand-surface)] border border-black/10 text-[color:var(--brand-text)] placeholder-[color:var(--brand-muted)] focus:outline-none focus:ring-2 focus:ring-black/20" />
@@ -74,8 +95,8 @@ export default function Contact() {
 						<p className="text-xs text-[color:var(--brand-muted)]">By submitting, you agree to be contacted about your inquiry.</p>
 						<button type="submit" className="btn-primary">Send message</button>
 					</div>
-				</form>
+				</motion.form>
 			</div>
-		</section>
+		</motion.section>
 	);
 }
