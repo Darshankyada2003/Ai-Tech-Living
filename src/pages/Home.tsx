@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import heroImage from "../assets/HomeWorks.png"; // make sure the file exists
+import heroVideo from "../assets/smaple.mp4"; // make sure the file exists
 // import purest from "../assets/hero.jpg"; // make sure the file exists
 import harness from "../assets/harness.png"; // make sure the file exists
 import orluna from "../assets/orluna.png"; // make sure the file exists
 import press from "../assets/press.png"; // make sure the file exists
 import ritz from "../assets/ritz.png"; // make sure the file exists
-
+import {motion} from "framer-motion";
+import type { Variants } from "framer-motion";
 export default function Home() {
     const containerReveal = {
         hidden: { opacity: 0, y: 20 },
@@ -25,22 +26,20 @@ export default function Home() {
         <div className="relative">
             <header
                 className="relative min-h-[70vh] md:min-h-[90vh] flex items-end"
-                style={{
-                    backgroundImage: `url(${heroImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
             >
+                <video
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src={heroVideo}
+                    poster={heroImage}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                />
                 <div className="absolute inset-0" aria-hidden="true"></div>
                 <div className="relative z-10 w-full">
-                    <motion.div
-                        className="container-narrow py-16"
-                        variants={containerReveal}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
-                    >
-                        <motion.div className="max-w-2xl" variants={itemReveal}>
+                    <div className="container-narrow py-16">
+                        <div className="max-w-2xl">
                             <p className="uppercase tracking-widest text-white text-xs mb-3 drop-shadow-lg">Luxury Automated Blinds</p>
                             <h1 className="text-white text-4xl md:text-6xl font-semibold leading-tight mb-5 drop-shadow-lg">
                                 Shape daylight with simple elegance
@@ -48,8 +47,8 @@ export default function Home() {
                             <p className="text-white text-base md:text-lg mb-8 drop-shadow-lg">
                                 Automated window treatments that complement your architecture and elevate everyday living.
                             </p>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </header>
             <main>

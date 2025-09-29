@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
 import hero from "../assets/hero.jpg";
+import {motion} from "framer-motion";
 import lifestyle from "../assets/harness.png";
+import type { Variants } from "framer-motion";
 
 export default function About() {
     const containerReveal: Variants = {
