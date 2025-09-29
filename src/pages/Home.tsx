@@ -7,7 +7,8 @@ import orluna from "../assets/orluna.png"; // make sure the file exists
 import press from "../assets/press.png"; // make sure the file exists
 import ritz from "../assets/ritz.png"; // make sure the file exists
 import {motion} from "framer-motion";
-import type { Variants } from "framer-motion";
+// import type { Variants } from "framer-motion";
+
 export default function Home() {
     const containerReveal = {
         hidden: { opacity: 0, y: 20 },
