@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/BlackLogo.png"
+import logo from "../assets/BlackLogo.png";
+import HomeAutomationModal from "./HomeAutomationModal";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
+    const [showHomeAutomation, setShowHomeAutomation] = useState(false);
     const lastYRef = useRef<number>(0);
 
     useEffect(() => {
@@ -35,15 +37,15 @@ export default function Header() {
             className={`fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)] transform transition-all duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
                 }`}
         >
-            <div className="container-narrow flex justify-between items-center py-1.5 md:py-3">
-                <div className="flex items-center gap-3">
+            <div className="container-narrow flex justify-between items-center py-2 sm:py-1.5 md:py-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                     <img
                         src={logo}
                         alt="AiTech Living Logo"
-                        className="h-10 md:h-15 w-auto object-contain"
+                        className="h-8 sm:h-10 md:h-15 w-auto object-contain"
                     />
 
-                    <Link to="/" className="text-[color:var(--brand-text)] text-xl md:text-2xl font-bold tracking-wide">
+                    <Link to="/" className="text-[color:var(--brand-text)] text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
                         AiTech Living
                     </Link>
                 </div>
@@ -75,46 +77,65 @@ export default function Header() {
                     </NavLink>
                 </nav>
                 <span className="hidden lg:inline-flex">
-                    <Link to="/contact" className="text-white font-semibold">Get in touch</Link>
+                    <button
+                        onClick={() => setShowHomeAutomation(true)}
+                        className="text-white font-semibold hover:opacity-80 transition-opacity"
+                    >
+                        Get in touch
+                    </button>
                 </span>
-                <button aria-label="Toggle menu" className="md:hidden text-[color:var(--brand-text)] font-semibold" onClick={() => setOpen(!open)}>☰</button>
+                <button aria-label="Toggle menu" className="md:hidden text-[color:var(--brand-text)] font-semibold text-lg p-1" onClick={() => setOpen(!open)}>☰</button>
             </div>
 
-                {open && (
+            {open && (
                 <div className="md:hidden bg-white border-t border-black/10">
-                    <div className="container-narrow flex flex-col py-3 space-y-2 text-[color:var(--brand-text)]">
+                    <div className="container-narrow flex flex-col py-4 space-y-3 text-[color:var(--brand-text)]">
                         <NavLink
                             to="/"
-                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            className={({ isActive }: { isActive: boolean }) => `py-2 text-base ${isActive ? 'font-bold text-blue-600' : 'font-medium'}`}
                             onClick={() => setOpen(false)}
                         >
                             Home
                         </NavLink>
                         <NavLink
                             to="/about"
-                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            className={({ isActive }: { isActive: boolean }) => `py-2 text-base ${isActive ? 'font-bold text-blue-600' : 'font-medium'}`}
                             onClick={() => setOpen(false)}
                         >
                             About
                         </NavLink>
                         <NavLink
                             to="/services"
-                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            className={({ isActive }: { isActive: boolean }) => `py-2 text-base ${isActive ? 'font-bold text-blue-600' : 'font-medium'}`}
                             onClick={() => setOpen(false)}
                         >
                             Services
                         </NavLink>
                         <NavLink
                             to="/contact"
-                            className={({ isActive }) => `${isActive ? 'font-bold' : ''}`}
+                            className={({ isActive }: { isActive: boolean }) => `py-2 text-base ${isActive ? 'font-bold text-blue-600' : 'font-medium'}`}
                             onClick={() => setOpen(false)}
                         >
                             Contact
                         </NavLink>
-                        <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary inline-block text-center">Book a Demo</Link>
+                        <button
+                            onClick={() => {
+                                setOpen(false);
+                                setShowHomeAutomation(true);
+                            }}
+                            className="btn-primary inline-block text-center w-full py-3 mt-2"
+                        >
+                            Book a Demo
+                        </button>
                     </div>
                 </div>
             )}
+
+            {/* Home Automation Modal */}
+            <HomeAutomationModal
+                isOpen={showHomeAutomation}
+                onClose={() => setShowHomeAutomation(false)}
+            />
         </header>
     );
 }

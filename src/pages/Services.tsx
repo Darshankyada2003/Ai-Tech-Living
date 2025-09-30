@@ -8,17 +8,17 @@ import shades from "../assets/harness.png";
 
 export default function Services() {
     const containerReveal = {
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 10 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+            transition: { duration: 0.3, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.1 },
         },
     };
 
     const itemReveal = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
     };
     const services = [
         {
@@ -83,8 +83,7 @@ export default function Services() {
                         className="container-narrow py-12 md:py-16"
                         variants={containerReveal}
                         initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.2 }}
+                        animate="visible"
                     >
                         <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white text-xs mb-3 drop-shadow">AI Home Automation</p>

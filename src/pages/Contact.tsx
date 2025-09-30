@@ -3,17 +3,17 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
 	const containerReveal = {
-		hidden: { opacity: 0, y: 20 },
+		hidden: { opacity: 0, y: 10 },
 		visible: {
 			opacity: 1,
 			y: 0,
-			transition: { duration: 0.2, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.08 },
+			transition: { duration: 0.3, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.1 },
 		},
 	};
 
 	const itemReveal = {
-		hidden: { opacity: 0, y: 20 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+		hidden: { opacity: 0, y: 10 },
+		visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 	};
 
 	return (
@@ -21,8 +21,7 @@ export default function Contact() {
 			className="container-narrow py-16"
 			variants={containerReveal}
 			initial="hidden"
-			whileInView="visible"
-			viewport={{ once: true, amount: 0.2 }}
+			animate="visible"
 		>
 			<motion.div className="max-w-3xl" variants={itemReveal}>
 				<h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-[color:var(--brand-text)]">Get in touch</h1>
