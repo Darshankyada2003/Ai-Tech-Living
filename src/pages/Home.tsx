@@ -8,6 +8,7 @@ import orluna from "../assets/orluna.png"; // make sure the file exists
 import press from "../assets/press.png"; // make sure the file exists
 import ritz from "../assets/ritz.png"; // make sure the file exists
 import { motion } from "framer-motion";
+import AccordionFAQ from "../components/AccordionFAQ";
 import HomeAutomationModal from "../components/HomeAutomationModal";
 // import type { Variants } from "framer-motion";
 
@@ -375,23 +376,15 @@ export default function Home() {
                     viewport={{ once: true, amount: 0.2 }}
                 >
                     <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Frequently asked questions</h2>
-                    <div className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        <motion.details className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5" variants={itemReveal}>
-                            <summary className="cursor-pointer text-sm sm:text-base font-medium text-[color:var(--brand-text)]">Do I need wiring in place?</summary>
-                            <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">We support retrofit wireless options and hard‑wired systems for new builds.</p>
-                        </motion.details>
-                        <motion.details className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5" variants={itemReveal}>
-                            <summary className="cursor-pointer text-sm sm:text-base font-medium text-[color:var(--brand-text)]">Will this work without internet?</summary>
-                            <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Yes. Core functions run locally; remote access requires a secure connection.</p>
-                        </motion.details>
-                        <motion.details className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5" variants={itemReveal}>
-                            <summary className="cursor-pointer text-sm sm:text-base font-medium text-[color:var(--brand-text)]">What does maintenance look like?</summary>
-                            <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">We monitor systems proactively and provide scheduled health checks.</p>
-                        </motion.details>
-                        <motion.details className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5" variants={itemReveal}>
-                            <summary className="cursor-pointer text-sm sm:text-base font-medium text-[color:var(--brand-text)]">How long is a typical project?</summary>
-                            <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Smaller homes complete in days; larger estates may span several weeks.</p>
-                        </motion.details>
+                    <div className="mt-4 sm:mt-6">
+                        <AccordionFAQ
+                            items={[
+                                { question: "Do I need wiring in place?", answer: "We support retrofit wireless options and hard‑wired systems for new builds." },
+                                { question: "Will this work without internet?", answer: "Yes. Core functions run locally; remote access requires a secure connection." },
+                                { question: "What does maintenance look like?", answer: "We monitor systems proactively and provide scheduled health checks." },
+                                { question: "How long is a typical project?", answer: "Smaller homes complete in days; larger estates may span several weeks." },
+                            ]}
+                        />
                     </div>
                 </motion.section>
 

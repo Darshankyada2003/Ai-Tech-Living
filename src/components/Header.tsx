@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Home as HomeIcon, Building2, Hospital, Hotel } from "lucide-react";
 import logo from "../assets/BlackLogo.png";
 import HomeAutomationModal from "./HomeAutomationModal";
 
@@ -44,9 +45,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)] transform transition-all duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)] transform transition-all duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
+        }`}
     >
       <div className="container-narrow flex justify-between items-center py-2 sm:py-1.5 md:py-3">
         <div className="flex items-center gap-2 sm:gap-3">
@@ -68,38 +68,74 @@ export default function Header() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${
-                isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
             Home
           </NavLink>
-          <NavLink
-            to="/about"
+          {/* Our Solution dropdown (desktop) */}
+          <div className="relative group">
+            <NavLink
+              to="/our-solution"
+              className={({ isActive }) =>
+                `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""}`
+              }
+            >
+              Our Solution
+            </NavLink>
+            <div className="pointer-events-none absolute left-0 mt-1 -ml-13 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity">
+              <div className="min-w-[240px] rounded-xl border border-black/10 bg-white shadow-lg p-2">
+                <NavLink to="/home-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
+                  <HomeIcon size={16} />
+                  <span>Home Automation</span>
+                </NavLink>
+                <NavLink to="/office-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
+                  <Building2 size={16} />
+                  <span>Office Automation</span>
+                </NavLink>
+                <NavLink to="/hospital-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
+                  <Hospital size={16} />
+                  <span>Hospital Automation</span>
+                </NavLink>
+                <NavLink to="/hotel-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
+                  <Hotel size={16} />
+                  <span>Hotel Automation</span>
+                </NavLink>
+              </div>
+            </div>
+          </div>
+          {/* <NavLink
+            to="/home-automation"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${
-                isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
-            About
-          </NavLink>
+            Home Automation
+          </NavLink> */}
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${
-                isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
             Services
           </NavLink>
           <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              }`
+            }
+          >
+            About
+          </NavLink>
+          <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${
-                isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
@@ -129,30 +165,55 @@ export default function Header() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `p-2 text-lg  w-full  ${
-                  isActive ? "font-bold bg-gray-300" : "font-medium"
-                }`
-              }
-              onClick={() => setOpenMenu(   null)}
-            >
-              Home
-            </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `p-2 text-lg  w-full  ${
-                  isActive ? "font-bold bg-gray-300" : "font-medium"
+                `p-2 text-lg  w-full  ${isActive ? "font-bold bg-gray-300" : "font-medium"
                 }`
               }
               onClick={() => setOpenMenu(null)}
             >
-              About
+              Home
             </NavLink>
+            {/* Our Solution nested menu (mobile) */}
+            <div className="w-full">
+              <NavLink
+                to="/our-solution"
+                className={({ isActive }) => `p-2 text-lg w-full inline-block ${isActive ? "font-bold bg-gray-300" : "font-medium"}`}
+                onClick={() => setOpenMenu(null)}
+              >
+                Our Solution
+              </NavLink>
+              <div className="ml-3 mt-1 space-y-1">
+                <NavLink to="/home-automation" className={({ isActive }) => `flex items-center gap-2 p-2 text-base w-full ${isActive ? "font-bold bg-gray-300" : "font-medium"}`} onClick={() => setOpenMenu(null)}>
+                  <HomeIcon size={16} />
+                  <span>Home Automation</span>
+                </NavLink>
+                <NavLink to="/office-automation" className={({ isActive }) => `flex items-center gap-2 p-2 text-base w-full ${isActive ? "font-bold bg-gray-300" : "font-medium"}`} onClick={() => setOpenMenu(null)}>
+                  <Building2 size={16} />
+                  <span>Office Automation</span>
+                </NavLink>
+                <NavLink to="/hospital-automation" className={({ isActive }) => `flex items-center gap-2 p-2 text-base w-full ${isActive ? "font-bold bg-gray-300" : "font-medium"}`} onClick={() => setOpenMenu(null)}>
+                  <Hospital size={16} />
+                  <span>Hospital Automation</span>
+                </NavLink>
+                <NavLink to="/hotel-automation" className={({ isActive }) => `flex items-center gap-2 p-2 text-base w-full ${isActive ? "font-bold bg-gray-300" : "font-medium"}`} onClick={() => setOpenMenu(null)}>
+                  <Hotel size={16} />
+                  <span>Hotel Automation</span>
+                </NavLink>
+              </div>
+            </div>
+            {/* <NavLink
+              to="/home-automation"
+              className={({ isActive }) =>
+                `p-2 text-lg  w-full  ${isActive ? "font-bold bg-gray-300" : "font-medium"
+                }`
+              }
+              onClick={() => setOpenMenu(null)}
+            >
+              Home Automation
+            </NavLink> */}
             <NavLink
               to="/services"
               className={({ isActive }) =>
-                `p-2 text-lg  w-full  ${
-                  isActive ? "font-bold bg-gray-300" : "font-medium"
+                `p-2 text-lg  w-full  ${isActive ? "font-bold bg-gray-300" : "font-medium"
                 }`
               }
               onClick={() => setOpenMenu(null)}
@@ -160,10 +221,19 @@ export default function Header() {
               Services
             </NavLink>
             <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `p-2 text-lg  w-full  ${isActive ? "font-bold bg-gray-300" : "font-medium"
+                }`
+              }
+              onClick={() => setOpenMenu(null)}
+            >
+              About
+            </NavLink>
+            <NavLink
               to="/contact"
               className={({ isActive }) =>
-                `p-2 text-lg  w-full  ${
-                  isActive ? "font-bold bg-gray-300" : "font-medium"
+                `p-2 text-lg  w-full  ${isActive ? "font-bold bg-gray-300" : "font-medium"
                 }`
               }
               onClick={() => setOpenMenu(null)}

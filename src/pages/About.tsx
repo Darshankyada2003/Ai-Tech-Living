@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import hero from "../assets/hero.jpg";
 import { motion } from "framer-motion";
 import lifestyle from "../assets/harness.png";
@@ -172,10 +171,10 @@ export default function About() {
                                 <p className="text-white/90 mt-2 sm:mt-3 text-sm sm:text-base leading-6 sm:leading-7">
                                     Speak with a specialist to explore lighting, shading, and whole-home control options.
                                 </p>
-                                <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                                {/* <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                                     <Link to="/contact" className="btn-primary w-full sm:w-auto">Book a Consultation</Link>
                                     <Link to="/services" className="text-white underline-offset-4 hover:underline text-sm sm:text-base">Explore Services</Link>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -185,10 +184,10 @@ export default function About() {
                         <p className="mt-2 text-[color:var(--brand-muted)] text-sm leading-6">
                             Speak with a specialist to explore lighting, shading, and whole-home control options.
                         </p>
-                        <div className="mt-3 flex flex-col sm:flex-row items-start gap-3">
+                        {/* <div className="mt-3 flex flex-col sm:flex-row items-start gap-3">
                             <Link to="/contact" className="btn-primary w-full sm:w-auto">Book a Consultation</Link>
                             <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm">Explore Services</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </motion.section>
             </main>
