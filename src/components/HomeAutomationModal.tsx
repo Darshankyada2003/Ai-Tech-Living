@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
 import { X, Home, Lightbulb, Shield, Phone, Mail, Sun, Moon, Volume2, VolumeX } from "lucide-react";
 import { useState } from "react";
 
@@ -51,11 +52,11 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
 
   const currentRoom = rooms.find(r => r.id === activeRoom);
 
-  return (
+  const modal = (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -146,7 +147,7 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
               </div>
 
               {/* Controls Panel */}
-              <div className="p-3 sm:p-4 bg-gray-50 order-1 lg:order-2">
+              <div className="p-3 sm:p-4 bg-red-50 order-1 lg:order-2">
                 {/* Room Selection */}
                 <div className="mb-3 sm:mb-4">
                   <h3 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">Select Room</h3>
@@ -316,4 +317,7 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
       )}
     </AnimatePresence>
   );
+
+  // Render in a portal so it's not constrained by header's stacking context
+  return createPortal(modal, document.body);
 }
