@@ -41,7 +41,7 @@ export default function Contact() {
 							</span>
 							<div>
 								<p className="font-medium text-[color:var(--brand-text)]">Email</p>
-								<p className="text-[color:var(--brand-muted)]">hello@aitech-living.com</p>
+								<p className="text-[color:var(--brand-muted)]">aitechliving@gmail.com</p>
 							</div>
 						</li>
 						<li className="flex items-start gap-3">
@@ -50,7 +50,7 @@ export default function Contact() {
 							</span>
 							<div>
 								<p className="font-medium text-[color:var(--brand-text)]">Phone</p>
-								<p className="text-[color:var(--brand-muted)]">+1 (555) 123-4567</p>
+								<p className="text-[color:var(--brand-muted)]">Smit Rajani, +91 9033313096</p>
 							</div>
 						</li>
 						<li className="flex items-start gap-3">
@@ -59,7 +59,7 @@ export default function Contact() {
 							</span>
 							<div>
 								<p className="font-medium text-[color:var(--brand-text)]">Office</p>
-								<p className="text-[color:var(--brand-muted)]">123 Innovation Way, Suite 200</p>
+								<p className="text-[color:var(--brand-muted)]">Rajkot, Gujarat, India</p>
 							</div>
 						</li>
 					</ul>

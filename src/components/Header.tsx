@@ -49,26 +49,22 @@ export default function Header() {
         }`}
     >
       <div className="container-narrow flex justify-between items-center py-2 sm:py-1.5 md:py-3">
-        <div className="flex items-center gap-2 sm:gap-3">
+        <Link to="/" className="flex items-center gap-2 sm:gap-3">
           <img
             src={logo}
             alt="AiTech Living Logo"
             className="h-8 sm:h-10 md:h-15 w-auto object-contain"
           />
+          <span className="text-[color:var(--brand-text)] text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
+            AiTechLiving
+          </span>
+        </Link>
 
-          <Link
-            to="/"
-            className="text-[color:var(--brand-text)] text-lg sm:text-xl md:text-2xl font-bold tracking-wide"
-          >
-            AiTech Living
-          </Link>
-        </div>
-
-        <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-[color:var(--brand-text)]">
+        <nav className="hidden md:flex items-center gap-6 text-base font-semibold text-[color:var(--brand-text)]">
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 py-2 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
@@ -79,12 +75,12 @@ export default function Header() {
             <NavLink
               to="/our-solution"
               className={({ isActive }) =>
-                `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""}`
+                `transition-colors hover:opacity-80 py-2 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""}`
               }
             >
               Our Solution
             </NavLink>
-            <div className="pointer-events-none absolute left-0 mt-1 -ml-13 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity">
+            <div className="pointer-events-none absolute left-1/2 transform -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200">
               <div className="min-w-[240px] rounded-xl border border-black/10 bg-white shadow-lg p-2">
                 <NavLink to="/home-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
                   <HomeIcon size={16} />
@@ -105,19 +101,10 @@ export default function Header() {
               </div>
             </div>
           </div>
-          {/* <NavLink
-            to="/home-automation"
-            className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
-              }`
-            }
-          >
-            Home Automation
-          </NavLink> */}
           <NavLink
             to="/services"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 py-2 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
@@ -126,7 +113,7 @@ export default function Header() {
           <NavLink
             to="/about"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 py-2 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
@@ -135,7 +122,7 @@ export default function Header() {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              `transition-colors hover:opacity-80 pb-1 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
+              `transition-colors hover:opacity-80 py-2 ${isActive ? "border-b-2 border-[color:var(--brand-text)]" : ""
               }`
             }
           >
@@ -245,7 +232,7 @@ export default function Header() {
                 setOpenMenu(null);
                 setShowHomeAutomation(true);
               }}
-              className="bg-gray-600 text-white p-2 mt-20 text-lg font-bold inline-block text-center w-full"
+              className="bg-black text-white p-2 mt-20 text-lg font-bold inline-block text-center w-full"
             >
               Book a Demo
             </button>
