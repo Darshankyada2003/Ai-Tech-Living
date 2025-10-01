@@ -28,7 +28,7 @@ export default function AccordionFAQ({ items, className }: AccordionFAQProps) {
       initial="hidden"
       animate="visible"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         {items.map((faq, index) => (
           <motion.div
             key={index}

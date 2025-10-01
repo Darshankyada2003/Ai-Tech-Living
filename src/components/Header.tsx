@@ -55,7 +55,7 @@ export default function Header() {
             alt="AiTech Living Logo"
             className="h-8 sm:h-10 md:h-15 w-auto object-contain"
           />
-          <span className="text-[color:var(--brand-text)] text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
+          <span className="text-gray-700 text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
             AiTechLiving
           </span>
         </Link>

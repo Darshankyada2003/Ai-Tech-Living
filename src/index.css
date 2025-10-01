@@ -3,10 +3,10 @@
 :root {
   --brand-bg: #ffffff;
   --brand-surface: #f7f7f7;
-  --brand-text: #0a0a0a;
+  --brand-text: #454545;
   --brand-muted: #525252;
-  --brand-accent: #0a0a0a; /* primary actions in black */
-  --brand-link: #0a0a0a;
+  --brand-accent: #4e4e4e; /* primary actions in black */
+  --brand-link: #464646;
 }
 
 html, body, #root {
