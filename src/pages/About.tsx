@@ -39,7 +39,7 @@ export default function About() {
                     >
                         <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white/90 text-xs mb-2 sm:mb-3">About Us</p>
-                            <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight mb-3 sm:mb-4">
+                            <h1 className="gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight mb-3 sm:mb-4">
                                 Elevating everyday living with thoughtful automation
                             </h1>
                             <p className="text-white/90 text-sm sm:text-base md:text-lg">
@@ -73,7 +73,7 @@ export default function About() {
                             </p>
                         </motion.div>
                         <motion.div variants={itemReveal}>
-                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg sm:rounded-xl border border-black/10 bg-black/5">
+                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg sm:rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
                                 <motion.img
                                     src={lifestyle}
                                     alt="Lifestyle interior"

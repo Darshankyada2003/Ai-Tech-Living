@@ -24,7 +24,7 @@ export default function Contact() {
 			animate="visible"
 		>
 			<motion.div className="max-w-3xl" variants={itemReveal}>
-				<h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-[color:var(--brand-text)]">Get in touch</h1>
+				<h1 className="gradient-text text-3xl md:text-4xl font-semibold tracking-tight">Get in touch</h1>
 				<p className="mt-3 text-[color:var(--brand-muted)]">
 					We’d love to hear about your project or question. Fill out the form and our team will get back to you within 1–2 business days.
 				</p>

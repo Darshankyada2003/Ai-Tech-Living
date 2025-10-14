@@ -59,7 +59,7 @@ export default function Home() {
                                 Luxury Automated Blinds
                             </motion.p>
                             <motion.h1 
-                                className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight mb-3 sm:mb-5 drop-shadow-lg"
+                                className="gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight mb-3 sm:mb-5 drop-shadow-lg"
                                 variants={itemReveal}
                             >
                                 Shape daylight with simple elegance
@@ -70,6 +70,7 @@ export default function Home() {
                             >
                                 Automated window treatments that complement your architecture and elevate everyday living.
                             </motion.p>
+                            <p className="text-white/90 text-sm sm:text-base md:text-lg"><span className="typewriter inline-block">Lighting • Climate • Security • Shades • Voice</span></p>
                         </motion.div>
                     </motion.div>
                 </div>
@@ -95,15 +96,15 @@ export default function Home() {
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
                                 <button 
                                     onClick={() => setShowHomeAutomation(true)}
-                                    className="btn-primary w-full sm:w-auto"
+                                    className="btn-primary ai-glow inline-flex items-center w-full sm:w-auto"
                                 >
                                     Book a Demo
                                 </button>
-                                <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">Explore Products</Link>
+                                <Link to="/services" className="btn-ghost text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">Explore Products</Link>
                             </div>
                         </motion.div>
                         <motion.div variants={itemReveal}>
-                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
+                            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
                                 <motion.img
                                     src={harness}
                                     alt="Lifestyle interior"
@@ -225,7 +226,7 @@ export default function Home() {
                                 Discover the advantages of native, tunable lighting and redefine expectations for what light in the home should be.
                                 Intelligent lighting delivers a level of control and customization never before possible.
                             </p>
-                            <Link to="/services" className="btn-primary mt-3 sm:mt-5 inline-block w-full sm:w-auto text-center">Explore Lighting</Link>
+                            <Link to="/services" className="btn-primary ai-glow mt-3 sm:mt-5 inline-block w-full sm:w-auto text-center">Explore Lighting</Link>
                         </figcaption>
                     </motion.figure>
                 </motion.section>
@@ -330,11 +331,11 @@ export default function Home() {
                             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                                 <button 
                                     onClick={() => setShowHomeAutomation(true)}
-                                    className="btn-primary w-full sm:w-auto"
+                                    className="btn-primary ai-glow inline-flex items-center w-full sm:w-auto"
                                 >
                                     Start Your Project
                                 </button>
-                                <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">View Solutions</Link>
+                                <Link to="/services" className="btn-ghost text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">View Solutions</Link>
                             </div>
                         </motion.div>
                     </div>
@@ -403,11 +404,11 @@ export default function Home() {
                             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                                 <button 
                                     onClick={() => setShowHomeAutomation(true)}
-                                    className="btn-primary w-full sm:w-auto"
+                                    className="btn-primary ai-glow inline-flex items-center w-full sm:w-auto"
                                 >
                                     Book a Consultation
                                 </button>
-                                <Link to="/services" className="text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">See Services</Link>
+                                <Link to="/services" className="btn-ghost text-[color:var(--brand-text)] underline-offset-4 hover:underline text-sm sm:text-base">See Services</Link>
                             </div>
                         </motion.div>
                     </div>

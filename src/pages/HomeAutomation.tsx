@@ -74,7 +74,7 @@ export default function HomeAutomation() {
               <p className="uppercase tracking-widest text-white/95 text-xs mb-2">
                 AI‑Powered Home Automation
               </p>
-              <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight mb-3">
+              <h1 className="gradient-text text-3xl md:text-5xl font-semibold leading-tight mb-3">
                 Smarter living, beautifully orchestrated
               </h1>
               <p className="text-white/90 md:text-lg">
@@ -82,10 +82,19 @@ export default function HomeAutomation() {
                 that anticipate your needs—lighting, climate, security, and
                 shades working in harmony.
               </p>
-              {/* <div className="mt-6 flex gap-3">
-                                <Link to="/contact" className="btn-primary">Book a Consultation</Link>
-                                <Link to="/services" className="text-white underline-offset-4 hover:underline">Explore Services</Link>
-                            </div> */}
+              <p className="text-white/90 md:text-lg mt-2">
+                <span className="typewriter inline-block">
+                  Lighting • Climate • Security • Shades • Voice
+                </span>
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <Link to="/contact" className="btn-primary ai-glow inline-flex items-center">
+                  Book a consultation
+                </Link>
+                <Link to="/services" className="btn-ghost text-white/90 underline-offset-4 hover:underline">
+                  Explore services
+                </Link>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -163,7 +172,7 @@ export default function HomeAutomation() {
         <div className="container-narrow py-12 md:py-14">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <motion.figure variants={itemReveal}>
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
                 <motion.img
                   src={harness}
                   alt="Living space with integrated lighting and shades"
@@ -273,7 +282,7 @@ export default function HomeAutomation() {
             </div>
           </motion.div>
           <motion.div variants={itemReveal}>
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
               <motion.img
                 src={smart}
                 alt="Smart home dashboard"
@@ -359,9 +368,12 @@ export default function HomeAutomation() {
             Book a consultation to scope lighting, shades, and control that feel
             effortless.
           </p>
-          <div className="mt-5">
-            <Link to="/contact" className="btn-primary inline-block">
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <Link to="/contact" className="btn-primary ai-glow inline-flex items-center">
               Book a consultation
+            </Link>
+            <Link to="/contact" className="btn-ghost text-[color:var(--brand-text)] underline-offset-4 hover:underline">
+              Talk to a specialist
             </Link>
           </div>
         </motion.div>

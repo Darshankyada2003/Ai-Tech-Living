@@ -87,14 +87,18 @@ export default function Services() {
                     >
                         <motion.div className="max-w-2xl" variants={itemReveal}>
                             <p className="uppercase tracking-widest text-white text-xs mb-3 drop-shadow">AI Home Automation</p>
-                            <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight mb-4 drop-shadow">
+                            <h1 className="gradient-text text-3xl md:text-5xl font-semibold leading-tight mb-4 drop-shadow">
                                 Effortless living, intelligently orchestrated
                             </h1>
-                            <p className="text-white/90 md:text-lg mb-6">
+                            <p className="text-white/90 md:text-lg mb-2">
                                 From lighting to security, AiTech Living designs seamless, responsive homes that
                                 anticipate your needs and elevate everyday comfort.
                             </p>
-                            <Link to="/contact" className="btn-primary inline-block">Book a Consultation</Link>
+                            <p className="text-white/90 md:text-lg"><span className="typewriter inline-block">Lighting • Climate • Security • Shades • Voice</span></p>
+                            <div className="mt-6 flex flex-wrap items-center gap-4">
+                                <Link to="/contact" className="btn-primary ai-glow inline-flex items-center">Book a Consultation</Link>
+                                <Link to="/our-solution" className="btn-ghost text-white underline-offset-4 hover:underline">Explore Solutions</Link>
+                            </div>
                         </motion.div>
                     </motion.div>
                 </div>
@@ -120,7 +124,7 @@ export default function Services() {
                             className="group overflow-hidden rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] hover:border-black/20 transition-colors"
                             variants={itemReveal}
                         >
-                            <div className="relative aspect-[4/3] w-full overflow-hidden">
+                            <div className="relative aspect-[4/3] w-full overflow-hidden parallax-tilt ai-glow">
                                 <motion.img
                                     src={item.img}
                                     alt={item.alt}

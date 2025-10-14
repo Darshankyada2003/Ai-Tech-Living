@@ -58,8 +58,8 @@ export default function OurSolution() {
           <motion.div className="container-narrow py-10 md:py-14" variants={containerReveal} initial="hidden" animate="visible">
             <motion.div className="max-w-2xl" variants={itemReveal}>
               <p className="uppercase tracking-widest text-white/95 text-xs mb-2">Solutions</p>
-              <h1 className="text-white text-3xl md:text-5xl font-semibold leading-tight mb-3">Our Solution</h1>
-              <p className="text-white/90 md:text-lg">Tailored automation across home, office, hospitality, and healthcare.</p>
+              <h1 className="gradient-text text-3xl md:text-5xl font-semibold leading-tight mb-3">Our Solution</h1>
+              <p className="text-white/90 md:text-lg"><span className="typewriter inline-block">Home • Office • Hospital • Hotel</span></p>
             </motion.div>
           </motion.div>
         </div>
@@ -77,7 +77,7 @@ export default function OurSolution() {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {sectors.map((s, i) => (
             <motion.article key={i} className="group rounded-2xl overflow-hidden border border-black/10 bg-white/70" variants={itemReveal}>
-              <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <div className="relative aspect-[4/3] w-full overflow-hidden parallax-tilt ai-glow">
                 <motion.img
                   src={s.img}
                   alt={s.title}
@@ -90,7 +90,7 @@ export default function OurSolution() {
               <div className="p-5">
                 <h3 className="text-[color:var(--brand-text)] font-semibold">{s.title}</h3>
                 <p className="mt-1 text-[color:var(--brand-muted)] text-sm">{s.desc}</p>
-                <Link to={s.to} className="mt-4 inline-block text-sm font-semibold underline underline-offset-4">Learn more</Link>
+                <Link to={s.to} className="mt-4 inline-block btn-ghost underline-offset-4 hover:underline">Learn more</Link>
               </div>
             </motion.article>
           ))}
