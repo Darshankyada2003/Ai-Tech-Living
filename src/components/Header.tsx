@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Home as HomeIcon, Building2, Hospital, Hotel } from "lucide-react";
 import logo from "../assets/BlackLogo.png";
@@ -11,6 +11,7 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const lastYRef = useRef<number>(0);
 
   // Header entrance animation
   useGSAP(() => {
@@ -39,7 +40,6 @@ export default function Header() {
       if (Math.abs(delta) > threshold) {
         if (delta > 0 && y > 80) {
           // scrolling down: hide header with GSAP
-          setHidden(true);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: -100,
@@ -49,7 +49,6 @@ export default function Header() {
           }
         } else if (delta < 0) {
           // scrolling up: show header with GSAP
-          setHidden(false);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: 0,
