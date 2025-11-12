@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 /**
- * THEME CONFIGURATION
- * All theme colors are defined here. Modify values below to customize themes.
+ * COLOR CONFIGURATION
+ * All brand colors are defined here.
  */
 
-/* Dark Theme (Default) */
-:root,
-[data-theme="dark"] {
+:root {
   /* Background Colors */
   --brand-bg: #0b0b0b;
   --brand-surface: #111111;
@@ -31,33 +29,6 @@
   --brand-border-hover: rgba(255, 255, 255, 0.2);
   --brand-overlay-light: rgba(255, 255, 255, 0.05);
   --brand-overlay-medium: rgba(255, 255, 255, 0.1);
-}
-
-/* Light Theme */
-[data-theme="light"] {
-  /* Background Colors */
-  --brand-bg: #ffffff;
-  --brand-surface: #f8f9fa;
-  
-  /* Text Colors */
-  --brand-text: #1a1a1a;
-  --brand-muted: #6b7280;
-  --brand-link: #1a1a1a;
-  --brand-heading: #2563eb; /* blue-600 */
-  
-  /* Accent */
-  --brand-accent: var(--brand-heading);
-  
-  /* Button Gradient (same as dark) */
-  --brand-primary-start: #4932E6;
-  --brand-primary-end: #4C36EF;
-  --brand-ring: rgba(37, 99, 235, 0.5);
-  
-  /* Borders & Overlays */
-  --brand-border: rgba(0, 0, 0, 0.1);
-  --brand-border-hover: rgba(0, 0, 0, 0.2);
-  --brand-overlay-light: rgba(0, 0, 0, 0.05);
-  --brand-overlay-medium: rgba(0, 0, 0, 0.1);
 }
 
 html, body, #root {
@@ -121,25 +92,17 @@ h1, h2, h3, h4, h5, h6 { color: var(--brand-heading) !important; }
   padding-right: 0.75rem;
 }
 
-/* Theme-aware utility classes */
+/* Utility classes */
 .bg-white { 
   background-color: var(--brand-surface) !important; 
 }
 
-[data-theme="dark"] .bg-gray-100 { 
+.bg-gray-100 { 
   background-color: #111111 !important; 
 }
 
-[data-theme="light"] .bg-gray-100 { 
-  background-color: #f3f4f6 !important; 
-}
-
-[data-theme="dark"] .bg-gray-300 { 
+.bg-gray-300 { 
   background-color: #1a1a1a !important; 
-}
-
-[data-theme="light"] .bg-gray-300 { 
-  background-color: #d1d5db !important; 
 }
 
 .text-black { 
@@ -158,20 +121,12 @@ h1, h2, h3, h4, h5, h6 { color: var(--brand-heading) !important; }
   background-color: var(--brand-overlay-light) !important; 
 }
 
-[data-theme="dark"] .bg-white\/60 { 
+.bg-white\/60 { 
   background-color: transparent !important; 
 }
 
-[data-theme="light"] .bg-white\/60 { 
-  background-color: rgba(255, 255, 255, 0.6) !important; 
-}
-
-[data-theme="dark"] .bg-white\/70 { 
+.bg-white\/70 { 
   background-color: transparent !important; 
-}
-
-[data-theme="light"] .bg-white\/70 { 
-  background-color: rgba(255, 255, 255, 0.7) !important; 
 }
 
 /* AI-themed utilities */

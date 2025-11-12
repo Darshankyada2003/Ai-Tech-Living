@@ -1,16 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Home as HomeIcon, Building2, Hospital, Hotel, Sun, Moon } from "lucide-react";
+import { Home as HomeIcon, Building2, Hospital, Hotel } from "lucide-react";
 import logo from "../assets/BlackLogo.png";
 import HomeAutomationModal from "./HomeAutomationModal";
-import { useTheme } from "../contexts/ThemeContext";
 import { gsap } from "gsap";
 import { useGSAP } from "../hooks/useGSAP";
 
 export default function Header() {
   const [showHomeAutomation, setShowHomeAutomation] = useState(false);
-  const lastYRef = useRef<number>(0);
-  const { theme, toggleTheme } = useTheme();
   const headerRef = useRef<HTMLElement>(null);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLElement>(null);
@@ -42,6 +39,7 @@ export default function Header() {
       if (Math.abs(delta) > threshold) {
         if (delta > 0 && y > 80) {
           // scrolling down: hide header with GSAP
+          setHidden(true);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: -100,
@@ -51,6 +49,7 @@ export default function Header() {
           }
         } else if (delta < 0) {
           // scrolling up: show header with GSAP
+          setHidden(false);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: 0,
@@ -81,7 +80,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)]"
+      className="sticky top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm text-[color:var(--brand-text)]"
     >
       <div className="container-narrow flex justify-between items-center py-2 sm:py-1.5 md:py-3">
         <Link ref={logoRef} to="/" className="flex items-center gap-2 sm:gap-3">
@@ -90,7 +89,7 @@ export default function Header() {
             alt="AiTech Living Logo"
             className="h-8 sm:h-10 md:h-15 w-auto object-contain"
           />
-          <span className="text-gray-700 text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
+          <span className="text-[color:var(--brand-text)] text-lg sm:text-xl md:text-2xl font-bold tracking-wide">
             AiTechLiving
           </span>
         </Link>
@@ -164,15 +163,7 @@ export default function Header() {
             Contact
           </NavLink>
         </nav>
-        <div className="hidden lg:flex items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="p-2 rounded-lg text-[color:var(--brand-text)] hover:bg-[color:var(--brand-overlay-light)] transition-colors"
-            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+        <div className="hidden lg:flex items-center ">
           <button
             onClick={() => setShowHomeAutomation(true)}
             className="text-[color:var(--brand-text)] font-semibold hover:opacity-80 transition-opacity"
@@ -181,14 +172,6 @@ export default function Header() {
           </button>
         </div>
         <div className="flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            className="p-2 rounded-lg text-[color:var(--brand-text)] hover:bg-[color:var(--brand-overlay-light)] transition-colors md:hidden"
-            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
           <button
             aria-label={openMenu === "mainMenu" ? "Close menu" : "Open menu"}
             className="md:hidden text-[color:var(--brand-text)] font-semibold text-lg p-1"
@@ -200,7 +183,7 @@ export default function Header() {
       </div>
 
       {openMenu === "mainMenu" && (
-        <div className="md:hidden fixed w-full bg-gray-100 overflow-auto z-60">
+        <div className="md:hidden fixed w-full bg-[color:var(--brand-surface)] overflow-auto z-60">
           <div className="flex flex-col items-center min-h-screen space-y-3 mt-5 px-4"  >
             <NavLink
               to="/"
@@ -281,14 +264,6 @@ export default function Header() {
               Contact
             </NavLink>
             <div className="mt-20 space-y-3">
-              <button
-                onClick={toggleTheme}
-                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                className="w-full p-2 rounded-lg text-[color:var(--brand-text)] bg-[color:var(--brand-overlay-light)] hover:bg-[color:var(--brand-overlay-medium)] transition-colors flex items-center justify-center gap-2"
-              >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                <span>Switch to {theme === "dark" ? "Light" : "Dark"} Mode</span>
-              </button>
               <button
                 onClick={() => {
                   setOpenMenu(null);

@@ -2,10 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import heroImage from "../assets/HomeWorks.png";
 import heroVideo from "../assets/smaple.mp4";
-import harness from "../assets/harness.png";
-import orluna from "../assets/orluna.png";
-import press from "../assets/press.png";
-import ritz from "../assets/ritz.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AccordionFAQ from "../components/AccordionFAQ";
@@ -97,7 +93,7 @@ export default function Home() {
             .from(section1ImageRef.current, {
                 opacity: 0,
                 x: 80,
-                scale: 0.9,
+                scale: 0,
                 duration: 1,
                 ease: "back.out(1.2)",
             }, "-=0.7");
@@ -292,7 +288,7 @@ export default function Home() {
         <div className="relative">
             <header
                 ref={heroRef}
-                className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[90vh] flex items-end"
+                className="relative min-h-[100vh] flex items-end -mt-[64px] sm:-mt-[72px] md:-mt-[80px]"
             >
                 <video
                     className="absolute inset-0 h-full w-full object-cover"
@@ -304,7 +300,7 @@ export default function Home() {
                     playsInline
                 />
                 <div className="absolute inset-0" aria-hidden="true"></div>
-                <div className="relative z-10 w-full">
+                <div className="relative z-10 w-full pt-16 sm:pt-20 md:pt-24">
                     <div className="container-narrow py-8 sm:py-12 md:py-16">
                         <div className="max-w-2xl">
                             <p 
@@ -360,7 +356,7 @@ export default function Home() {
                         <div ref={section1ImageRef}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
                                 <img
-                                    src={harness}
+                                    src="mordenliving.jpg"
                                     alt="Lifestyle interior"
                                     className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                 />
@@ -382,7 +378,7 @@ export default function Home() {
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src={orluna}
+                                            src="story1.jpg"
                                             alt="Story 1"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -401,7 +397,7 @@ export default function Home() {
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src={ritz}
+                                            src="story2.jpg"
                                             alt="Story 2"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -420,7 +416,7 @@ export default function Home() {
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src={press}
+                                            src="story3.jpg"
                                             alt="Story 3"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -445,9 +441,9 @@ export default function Home() {
                     <figure>
                         <div className="relative w-full overflow-hidden rounded-lg sm:rounded-xl border border-black/10">
                             <img
-                                src={harness}
+                                src="homesection.jpg"
                                 alt="Kitchen and dining with natural light"
-                                className="gsap-image-hover h-full w-full object-cover"
+                                className="gsap-image-hover h-96 w-full object-cover"
                             />
                         </div>
                         <figcaption className="mt-4 sm:mt-6 max-w-2xl">
@@ -528,7 +524,7 @@ export default function Home() {
                         <figure ref={intelligentImageRef}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
                                 <img
-                                    src={heroImage}
+                                    src="underline.jpg"
                                     alt="Modern living room with automated blinds and lighting"
                                     className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                 />

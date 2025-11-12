@@ -1,4 +1,3 @@
-import hero from "../assets/hero.jpg";
 import { motion } from "framer-motion";
 import lifestyle from "../assets/harness.png";
 import type { Variants } from "framer-motion";
@@ -24,7 +23,7 @@ export default function About() {
             <div
                 className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[90vh] flex items-end"
                 style={{
-                    backgroundImage: `url(${hero})`,
+                    backgroundImage: `url(underline.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
@@ -129,7 +128,7 @@ export default function About() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
+                    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
                         <motion.div variants={itemReveal}>
                             <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[color:var(--brand-text)]">10+ yrs</p>
                             <p className="text-[color:var(--brand-muted)] text-xs sm:text-sm mt-1">Of delivering smart homes</p>
@@ -142,7 +141,7 @@ export default function About() {
                             <p className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[color:var(--brand-text)]">98%</p>
                             <p className="text-[color:var(--brand-muted)] text-xs sm:text-sm mt-1">Client satisfaction</p>
                         </motion.div>
-                    </div>
+                    </div> */}
                 </motion.section>
 
                 {/* CTA */}

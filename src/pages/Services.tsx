@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import hero from "../assets/HomeWorks.png";
-import lighting from "../assets/orluna.png";
-import climate from "../assets/hero.jpg";
-import security from "../assets/ritz.png";
-import shades from "../assets/harness.png";
+
 
 export default function Services() {
     const containerReveal = {
@@ -24,37 +20,37 @@ export default function Services() {
         {
             title: "Intelligent Lighting",
             desc: "Human‑centric, tunable lighting that adapts to your routine and mood.",
-            img: lighting,
+            img: "sampleservice.jpg",
             alt: "Intelligent lighting in a living room",
         },
         {
             title: "Climate Control",
             desc: "AI‑assisted heating and cooling for comfort with lower energy use.",
-            img: climate,
+            img: "connect.jpg",
             alt: "Smart climate control across the home",
         },
         {
             title: "Security & Access",
             desc: "Unified cameras, sensors, and smart locks with proactive alerts.",
-            img: security,
+            img: "homesection.jpg",
             alt: "Modern home security and access",
         },
         {
             title: "Automated Shades",
             desc: "Elegantly control daylight and privacy—timed, sensor‑based, or voice.",
-            img: shades,
+            img: "story1.jpg",
             alt: "Automated shades and blinds",
         },
         {
             title: "Voice & Scenes",
             desc: "One phrase sets the mood—lights, music, temperature, and more.",
-            img: lighting,
+            img: "underline.jpg",
             alt: "Voice scenes for the smart home",
         },
         {
             title: "Energy Optimization",
             desc: "Insights and automation to reduce costs and environmental impact.",
-            img: climate,
+            img: "story3.jpg",
             alt: "Energy optimization dashboard",
         },
     ];
@@ -72,7 +68,7 @@ export default function Services() {
             <section
                 className="relative min-h-[50vh] md:min-h-[90vh] flex items-end"
                 style={{
-                    backgroundImage: `url(${hero})`,
+                    backgroundImage: `url(servicepage.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
@@ -211,7 +207,7 @@ export default function Services() {
                     <motion.div variants={itemReveal}>
                         <div className="relative aspect:[16/10] md:aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
                             <motion.img
-                                src={shades}
+                                src="servicepage.jpg"
                                 alt="Installation and setup"
                                 className="absolute inset-0 h-full w-full object-cover"
                                 initial={{ scale: 1 }}

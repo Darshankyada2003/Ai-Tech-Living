@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import hero from "../assets/hero.png";
-import homeImg from "../assets/home.jpg";
-import harness from "../assets/harness.png";
-import ritz from "../assets/ritz.png";
 
 export default function OurSolution() {
   const containerReveal = {
@@ -24,25 +21,25 @@ export default function OurSolution() {
     {
       title: "Home Automation",
       desc: "AI‑powered comfort, lighting, security and shades—effortless and beautiful.",
-      img: homeImg,
+      img: "homeauto.jpg",
       to: "/home-automation",
     },
     {
       title: "Office Automation",
       desc: "Smart workplaces with energy‑aware lighting, access, and meeting room control.",
-      img: harness,
+      img: "officeauto.jpg",
       to: "/office-automation",
     },
     {
       title: "Hospital Automation",
       desc: "Patient‑centric environments—adaptive lighting, nurse call integration, and safety.",
-      img: hero,
+      img: "hospitalauto.jpg",
       to: "/hospital-automation",
     },
     {
       title: "Hotel Automation",
       desc: "Premium guest experiences—scene presets, access, and energy optimization.",
-      img: ritz,
+      img: "hotelauto.jpg",
       to: "/hotel-automation",
     },
   ];

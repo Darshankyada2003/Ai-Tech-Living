@@ -15,14 +15,11 @@ export default function Footer() {
                             <Link to="/" className="font-bold text-xl text-[color:var(--brand-text)]">AiTech Living</Link>
                         </div>
                         <p className="mt-5 text-sm leading-7">
-                            For more than 60 years, the same core belief has guided our work — that
-                            design fueled by innovation and the transformative nature of light has
-                            the power to enrich people's lives. The AiTech Living portfolio is the
-                            purest expression of that belief.
+                            Guided by a lasting commitment to innovation and the transformative potential of light, we create designs that enhance the human experience. The AiTech Living portfolio is the ultimate expression of that commitment.
                         </p>
 
                         {/* City links row */}
-                        <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                        {/* <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
                             <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">London</a>
                             <span className="opacity-40">|</span>
                             <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">New York</a>
@@ -32,11 +29,11 @@ export default function Footer() {
                             <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">India</a>
                             <span className="opacity-40">|</span>
                             <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">Los Angeles (coming soon)</a>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Right: Vertical actions list */}
-                    <div className="md:justify-self-end w-full max-w-xs">
+                    {/* <div className="md:justify-self-end w-full max-w-xs">
                         <nav className="flex flex-col gap-5 text-[color:var(--brand-text)]">
                             <a href="#" className="hover:opacity-80 transition-opacity">Find a Dealer</a>
                             <a href="#" className="hover:opacity-80 transition-opacity">Get Design Support</a>
@@ -44,7 +41,7 @@ export default function Footer() {
                             <a href="#" className="hover:opacity-80 transition-opacity">Book a Demo</a>
                             <a href="#" className="hover:opacity-80 transition-opacity">Become a Dealer</a>
                         </nav>
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Bottom bar: Legal left, Social right */}
