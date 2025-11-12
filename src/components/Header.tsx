@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "../hooks/useGSAP";
 
 export default function Header() {
-  const [hidden, setHidden] = useState(false);
   const [showHomeAutomation, setShowHomeAutomation] = useState(false);
   const lastYRef = useRef<number>(0);
   const { theme, toggleTheme } = useTheme();
@@ -43,7 +42,6 @@ export default function Header() {
       if (Math.abs(delta) > threshold) {
         if (delta > 0 && y > 80) {
           // scrolling down: hide header with GSAP
-          setHidden(true);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: -100,
@@ -53,7 +51,6 @@ export default function Header() {
           }
         } else if (delta < 0) {
           // scrolling up: show header with GSAP
-          setHidden(false);
           if (headerRef.current) {
             gsap.to(headerRef.current, {
               y: 0,

@@ -178,7 +178,7 @@ export const scrollFadeInUp = (
     duration: 1.2,
     ease: "power3.out",
     scrollTrigger: {
-      trigger: element,
+      trigger: element as gsap.DOMTarget,
       start: options?.start || "top 80%",
       end: options?.end || "top 50%",
       toggleActions: options?.once ? "play none none none" : "play none none reverse",
@@ -202,7 +202,7 @@ export const scrollStaggerCards = (
     stagger,
     ease: "back.out(1.2)",
     scrollTrigger: {
-      trigger: elements,
+      trigger: elements as gsap.DOMTarget,
       start: "top 85%",
       toggleActions: "play none none reverse",
     },
@@ -217,7 +217,7 @@ export const parallaxImage = (element: gsap.TweenTarget, speed: number = 0.5) =>
     yPercent: -50 * speed,
     ease: "none",
     scrollTrigger: {
-      trigger: element,
+      trigger: element as gsap.DOMTarget,
       start: "top bottom",
       end: "bottom top",
       scrub: true,
