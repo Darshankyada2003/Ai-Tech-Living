@@ -1,14 +1,38 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Home as HomeIcon, Building2, Hospital, Hotel } from "lucide-react";
+import { Home as HomeIcon, Building2, Hospital, Hotel, Sun, Moon } from "lucide-react";
 import logo from "../assets/BlackLogo.png";
 import HomeAutomationModal from "./HomeAutomationModal";
+import { useTheme } from "../contexts/ThemeContext";
+import { gsap } from "gsap";
+import { useGSAP } from "../hooks/useGSAP";
 
 export default function Header() {
-  //   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [showHomeAutomation, setShowHomeAutomation] = useState(false);
   const lastYRef = useRef<number>(0);
+  const { theme, toggleTheme } = useTheme();
+  const headerRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+
+  // Header entrance animation
+  useGSAP(() => {
+    if (logoRef.current && navRef.current) {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      
+      tl.from(logoRef.current, {
+        opacity: 0,
+        x: -30,
+        duration: 0.8,
+      })
+      .from(navRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.8,
+      }, "-=0.5");
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +42,25 @@ export default function Header() {
 
       if (Math.abs(delta) > threshold) {
         if (delta > 0 && y > 80) {
-          // scrolling down: hide header
+          // scrolling down: hide header with GSAP
           setHidden(true);
+          if (headerRef.current) {
+            gsap.to(headerRef.current, {
+              y: -100,
+              duration: 0.3,
+              ease: "power2.inOut",
+            });
+          }
         } else if (delta < 0) {
-          // scrolling up: show header
+          // scrolling up: show header with GSAP
           setHidden(false);
+          if (headerRef.current) {
+            gsap.to(headerRef.current, {
+              y: 0,
+              duration: 0.3,
+              ease: "power2.inOut",
+            });
+          }
         }
         lastYRef.current = y;
       }
@@ -45,11 +83,11 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)] transform transition-all duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"
-        }`}
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-50 bg-white text-[color:var(--brand-text)]"
     >
       <div className="container-narrow flex justify-between items-center py-2 sm:py-1.5 md:py-3">
-        <Link to="/" className="flex items-center gap-2 sm:gap-3">
+        <Link ref={logoRef} to="/" className="flex items-center gap-2 sm:gap-3">
           <img
             src={logo}
             alt="AiTech Living Logo"
@@ -60,7 +98,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-base font-semibold text-[color:var(--brand-text)]">
+        <nav ref={navRef} className="hidden md:flex items-center gap-6 text-base font-semibold text-[color:var(--brand-text)]">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -81,7 +119,7 @@ export default function Header() {
               Our Solution
             </NavLink>
             <div className="pointer-events-none absolute left-1/2 transform -translate-x-1/2 top-full mt-2 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-200">
-              <div className="min-w-[240px] rounded-xl border border-black/10 bg-white shadow-lg p-2">
+              <div className="min-w-[240px] rounded-xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)] shadow-lg p-2">
                 <NavLink to="/home-automation" className={({ isActive }) => `flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-black/5 ${isActive ? "font-bold" : ""}`}>
                   <HomeIcon size={16} />
                   <span>Home Automation</span>
@@ -129,21 +167,39 @@ export default function Header() {
             Contact
           </NavLink>
         </nav>
-        <span className="hidden lg:inline-flex">
+        <div className="hidden lg:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="p-2 rounded-lg text-[color:var(--brand-text)] hover:bg-[color:var(--brand-overlay-light)] transition-colors"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
           <button
             onClick={() => setShowHomeAutomation(true)}
-            className="text-black font-semibold hover:opacity-80 transition-opacity"
+            className="text-[color:var(--brand-text)] font-semibold hover:opacity-80 transition-opacity"
           >
             Get in touch
           </button>
-        </span>
-        <button
-          aria-label={openMenu === "mainMenu" ? "Close menu" : "Open menu"}
-          className="md:hidden text-[color:var(--brand-text)] font-semibold text-lg p-1"
-          onClick={() => toggleMenu("mainMenu")}
-        >
-          {openMenu === "mainMenu" ? "X" : "☰"}
-        </button>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="p-2 rounded-lg text-[color:var(--brand-text)] hover:bg-[color:var(--brand-overlay-light)] transition-colors md:hidden"
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            aria-label={openMenu === "mainMenu" ? "Close menu" : "Open menu"}
+            className="md:hidden text-[color:var(--brand-text)] font-semibold text-lg p-1"
+            onClick={() => toggleMenu("mainMenu")}
+          >
+            {openMenu === "mainMenu" ? "X" : "☰"}
+          </button>
+        </div>
       </div>
 
       {openMenu === "mainMenu" && (
@@ -227,15 +283,25 @@ export default function Header() {
             >
               Contact
             </NavLink>
-            <button
-              onClick={() => {
-                setOpenMenu(null);
-                setShowHomeAutomation(true);
-              }}
-              className="bg-black text-white p-2 mt-20 text-lg font-bold inline-block text-center w-full"
-            >
-              Book a Demo
-            </button>
+            <div className="mt-20 space-y-3">
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                className="w-full p-2 rounded-lg text-[color:var(--brand-text)] bg-[color:var(--brand-overlay-light)] hover:bg-[color:var(--brand-overlay-medium)] transition-colors flex items-center justify-center gap-2"
+              >
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                <span>Switch to {theme === "dark" ? "Light" : "Dark"} Mode</span>
+              </button>
+              <button
+                onClick={() => {
+                  setOpenMenu(null);
+                  setShowHomeAutomation(true);
+                }}
+                className="bg-[color:var(--brand-primary-start)] text-white p-2 text-lg font-bold inline-block text-center w-full rounded-lg"
+              >
+                Book a Demo
+              </button>
+            </div>
           </div>
         </div>
       )}
