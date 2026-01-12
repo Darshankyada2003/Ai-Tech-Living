@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Sun, Stethoscope, ShieldCheck, Bell } from "lucide-react";
-import hero from "../assets/blue.jpg";
-import img1 from "../assets/smart.jpg";
+const hero = "/hospital-automation/hero.jpg";
+const img1 = "/hospital-automation/img1.jpg";
 import { Link } from "react-router-dom";
 import AccordionFAQ from "../components/AccordionFAQ";
 
@@ -57,7 +57,7 @@ export default function HospitalAutomation() {
             </div>
           </motion.figure>
           <motion.div variants={itemReveal}>
-            <h2 className="text-[color:var(--brand-text)] text-xl md:text-3xl font-semibold">Key capabilities</h2>
+            <h2 className="text-[color:var(--brand-heading)] text-xl md:text-3xl font-semibold">Key capabilities</h2>
             <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
               <li className="flex items-center gap-2 rounded-lg border border-black/10 bg-white/60 p-3"><Sun size={16} /><span>Circadian & task lighting for care</span></li>
               <li className="flex items-center gap-2 rounded-lg border border-black/10 bg-white/60 p-3"><Stethoscope size={16} /><span>Nurse call and workflow integration</span></li>
@@ -72,7 +72,7 @@ export default function HospitalAutomation() {
       <motion.section className="container-narrow py-12 md:py-14" variants={containerReveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <motion.div variants={itemReveal}>
-            <h2 className="text-[color:var(--brand-text)] text-xl md:text-3xl font-semibold">Clinical solutions</h2>
+            <h2 className="text-[color:var(--brand-heading)] text-xl md:text-3xl font-semibold">Clinical solutions</h2>
             <ul className="mt-4 space-y-2 text-sm text-[color:var(--brand-text)]">
               <li className="rounded-lg border border-black/10 bg-white/60 p-3">Patient room scenes: admit, exam, procedure, rest</li>
               <li className="rounded-lg border border-black/10 bg-white/60 p-3">Scheduling & automation by ward or time of day</li>
@@ -81,7 +81,7 @@ export default function HospitalAutomation() {
             </ul>
           </motion.div>
           <motion.div variants={itemReveal}>
-            <h2 className="text-[color:var(--brand-text)] text-xl md:text-3xl font-semibold">Compliance & safety</h2>
+            <h2 className="text-[color:var(--brand-heading)] text-xl md:text-3xl font-semibold">Compliance & safety</h2>
             <ul className="mt-4 space-y-2 text-sm text-[color:var(--brand-text)]">
               <li className="rounded-lg border border-black/10 bg-white/60 p-3">Event logging and audit trails for critical spaces</li>
               <li className="rounded-lg border border-black/10 bg-white/60 p-3">Role‑based access for staff, contractors, and visitors</li>

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import hero from "../assets/hero.png";
-import harness from "../assets/harness.png";
-import smart from "../assets/smart.jpg";
+const hero = "/home-automation/hero.png";
+const harness = "/home-automation/harness.png";
+const smart = "/home-automation/smart.jpg";
 import AccordionFAQ from "../components/AccordionFAQ";
 
 export default function HomeAutomation() {
@@ -109,8 +109,8 @@ export default function HomeAutomation() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <header className="max-w-2xl">
-          <h2 className="text-[color:var(--brand-text)] text-2xl md:text-4xl font-semibold">
-            What’s inside an AiTech home
+          <h2 className="text-[color:var(--brand-heading)] text-2xl md:text-4xl font-semibold">
+            What's inside an AiTech home
           </h2>
           <p className="mt-2 text-[color:var(--brand-muted)]">
             A cohesive system that feels invisible—powerful, reliable, and
@@ -150,7 +150,7 @@ export default function HomeAutomation() {
               className="rounded-xl border border-black/10 bg-white/60 p-5"
               variants={itemReveal}
             >
-              <h3 className="text-[color:var(--brand-text)] font-semibold">
+              <h3 className="text-[color:var(--brand-heading)] font-semibold">
                 {f.title}
               </h3>
               <p className="mt-1 text-[color:var(--brand-muted)] text-sm">
@@ -188,7 +188,7 @@ export default function HomeAutomation() {
               </div>
             </motion.figure>
             <motion.div variants={itemReveal}>
-              <h2 className="text-[color:var(--brand-text)] text-xl md:text-3xl font-semibold">
+              <h2 className="text-[color:var(--brand-heading)] text-xl md:text-3xl font-semibold">
                 Designed with architects, installed by pros
               </h2>
               <p className="mt-2 text-[color:var(--brand-muted)]">
@@ -225,7 +225,7 @@ export default function HomeAutomation() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <motion.div variants={itemReveal}>
-            <h3 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">
+            <h3 className="text-[color:var(--brand-heading)] text-2xl md:text-3xl font-semibold">
               Your path to a smarter home
             </h3>
             <ol className="mt-5 space-y-4 text-[color:var(--brand-text)]">

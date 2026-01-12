@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Building2, KeySquare, Monitor, LineChart } from "lucide-react";
-import hero from "../assets/blue.jpg";
-import img1 from "../assets/harness.png";
+const hero = "/office-automation/hero.jpg";
+const img1 = "/office-automation/img1.png";
 import AccordionFAQ from "../components/AccordionFAQ";
 import { Link } from "react-router-dom";
 
@@ -50,7 +50,7 @@ export default function OfficeAutomation() {
             </div>
           </motion.figure>
           <motion.div variants={itemReveal}>
-            <h2 className="text-[color:var(--brand-text)] text-xl md:text-3xl font-semibold">What’s inside an AiTech office</h2>
+            <h2 className="text-[color:var(--brand-heading)] text-xl md:text-3xl font-semibold">What’s inside an AiTech office</h2>
             <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
               <li className="flex items-center gap-2 rounded-lg border border-black/10 bg-white/60 p-3"><Building2 size={16} /><span>Daylight & occupancy‑based lighting</span></li>
               <li className="flex items-center gap-2 rounded-lg border border-black/10 bg-white/60 p-3"><KeySquare size={16} /><span>Access control & visitor management</span></li>

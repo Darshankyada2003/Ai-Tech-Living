@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import hero from "../assets/hero.png";
+const hero = "/our-solution/hero.png";
 
 export default function OurSolution() {
   const containerReveal = {
@@ -21,25 +21,25 @@ export default function OurSolution() {
     {
       title: "Home Automation",
       desc: "AI‑powered comfort, lighting, security and shades—effortless and beautiful.",
-      img: "homeauto.jpg",
+      img: "/our-solution/homeauto.jpg",
       to: "/home-automation",
     },
     {
       title: "Office Automation",
       desc: "Smart workplaces with energy‑aware lighting, access, and meeting room control.",
-      img: "officeauto.jpg",
+      img: "/our-solution/officeauto.jpg",
       to: "/office-automation",
     },
     {
       title: "Hospital Automation",
       desc: "Patient‑centric environments—adaptive lighting, nurse call integration, and safety.",
-      img: "hospitalauto.jpg",
+      img: "/our-solution/hospitalauto.jpg",
       to: "/hospital-automation",
     },
     {
       title: "Hotel Automation",
       desc: "Premium guest experiences—scene presets, access, and energy optimization.",
-      img: "hotelauto.jpg",
+      img: "/our-solution/hotelauto.jpg",
       to: "/hotel-automation",
     },
   ];
@@ -69,7 +69,7 @@ export default function OurSolution() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
-        <h2 className="text-[color:var(--brand-text)] text-2xl md:text-4xl font-semibold">Explore by sector</h2>
+        <h2 className="text-[color:var(--brand-heading)] text-2xl md:text-4xl font-semibold">Explore by sector</h2>
         <p className="mt-2 text-[color:var(--brand-muted)] max-w-2xl">Each vertical has unique needs—we design systems that fit the experience and operations you want.</p>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {sectors.map((s, i) => (
@@ -85,7 +85,7 @@ export default function OurSolution() {
                 />
               </div>
               <div className="p-5">
-                <h3 className="text-[color:var(--brand-text)] font-semibold">{s.title}</h3>
+                <h3 className="text-[color:var(--brand-heading)] font-semibold">{s.title}</h3>
                 <p className="mt-1 text-[color:var(--brand-muted)] text-sm">{s.desc}</p>
                 <Link to={s.to} className="mt-4 inline-block btn-ghost underline-offset-4 hover:underline">Learn more</Link>
               </div>

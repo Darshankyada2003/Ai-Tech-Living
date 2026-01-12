@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import lifestyle from "../assets/harness.png";
+const lifestyle = "/about/lifestyle.png";
 import type { Variants } from "framer-motion";
 
 export default function About() {
@@ -23,7 +23,7 @@ export default function About() {
             <div
                 className="relative min-h-[40vh] sm:min-h-[50vh] md:min-h-[90vh] flex items-end"
                 style={{
-                    backgroundImage: `url(underline.jpg)`,
+                    backgroundImage: `url(/about/underline.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
@@ -61,7 +61,7 @@ export default function About() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
                         <motion.div variants={itemReveal}>
                             <p className="uppercase tracking-widest text-[color:var(--brand-muted)] text-xs mb-2 sm:mb-3">Our Story</p>
-                            <h2 className="text-[color:var(--brand-text)] text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-3 sm:mb-5">
+                            <h2 className="text-[color:var(--brand-heading)] text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-3 sm:mb-5">
                                 Crafting calm, intuitive homes
                             </h2>
                             <p className="text-[color:var(--brand-muted)] text-sm sm:text-base leading-6 sm:leading-7 mb-3 sm:mb-4">
@@ -96,22 +96,22 @@ export default function About() {
                     viewport={{ once: true, amount: 0.2 }}
                 >
                     <div className="container-narrow py-8 sm:py-10 md:py-12">
-                        <h3 className="text-[color:var(--brand-text)] text-lg sm:text-xl font-semibold">What we value</h3>
+                        <h3 className="text-[color:var(--brand-heading)] text-lg sm:text-xl font-semibold">What we value</h3>
                         <div className="mt-4 sm:mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                             <motion.article variants={itemReveal}>
-                                <h4 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Design-first</h4>
+                                <h4 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Design-first</h4>
                                 <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">
                                     Technology that complements architecture—discreet, elegant, and timeless.
                                 </p>
                             </motion.article>
                             <motion.article variants={itemReveal}>
-                                <h4 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Effortless control</h4>
+                                <h4 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Effortless control</h4>
                                 <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">
                                     Scenes and schedules that anticipate needs and simplify routines.
                                 </p>
                             </motion.article>
                             <motion.article variants={itemReveal}>
-                                <h4 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Sustainable comfort</h4>
+                                <h4 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Sustainable comfort</h4>
                                 <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">
                                     Daylight, shading, and tunable light working together for well-being.
                                 </p>

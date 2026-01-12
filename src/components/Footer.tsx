@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/BlackLogo.png";
+const logo = "/logo (2).svg";
 import { Instagram, Youtube, Linkedin, Twitter, Facebook } from "lucide-react";
 
 export default function Footer() {
@@ -11,37 +11,13 @@ export default function Footer() {
                     {/* Left: Brand and description */}
                     <div>
                         <div className="flex items-center gap-3">
-                            <img src={logo} alt="AiTech Living Logo" className="h-12 w-12 object-contain" />
+                            <img src={logo} alt="AiTech Living Logo" className="h-22 w-32 object-contain" />
                             <Link to="/" className="font-bold text-xl text-[color:var(--brand-text)]">AiTech Living</Link>
                         </div>
                         <p className="mt-5 text-sm leading-7">
                             Guided by a lasting commitment to innovation and the transformative potential of light, we create designs that enhance the human experience. The AiTech Living portfolio is the ultimate expression of that commitment.
                         </p>
-
-                        {/* City links row */}
-                        {/* <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                            <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">London</a>
-                            <span className="opacity-40">|</span>
-                            <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">New York</a>
-                            <span className="opacity-40">|</span>
-                            <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">Austin</a>
-                            <span className="opacity-40">|</span>
-                            <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">India</a>
-                            <span className="opacity-40">|</span>
-                            <a href="#" className="hover:text-[color:var(--brand-text)] transition-colors">Los Angeles (coming soon)</a>
-                        </div> */}
                     </div>
-
-                    {/* Right: Vertical actions list */}
-                    {/* <div className="md:justify-self-end w-full max-w-xs">
-                        <nav className="flex flex-col gap-5 text-[color:var(--brand-text)]">
-                            <a href="#" className="hover:opacity-80 transition-opacity">Find a Dealer</a>
-                            <a href="#" className="hover:opacity-80 transition-opacity">Get Design Support</a>
-                            <a href="#" className="hover:opacity-80 transition-opacity">Integrator Resources</a>
-                            <a href="#" className="hover:opacity-80 transition-opacity">Book a Demo</a>
-                            <a href="#" className="hover:opacity-80 transition-opacity">Become a Dealer</a>
-                        </nav>
-                    </div> */}
                 </div>
 
                 {/* Bottom bar: Legal left, Social right */}

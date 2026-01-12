@@ -83,7 +83,7 @@ export default function HotelAutomation() {
         <div className="w-full lg:w-[40%] relative min-h-[40vh] sm:min-h-[50vh] lg:min-h-[90vh] flex items-center justify-center p-4 sm:p-6 md:p-8">
           <div className="relative w-full max-w-md lg:max-w-none h-[500px] rounded-xl flex items-center justify-center ">
             <div className="relative w-[350px] h-[400px] sm:w-[400px] sm:h-[500px] md:w-[450px] md:h-[550px] rounded-xl overflow-hidden">
-              <img src="lighttoggel.jpg" alt="Hotel automation" className="w-full h-full object-cover rounded-xl" />
+              <img src="/hotel-automation/lighttoggel.jpg" alt="Hotel automation" className="w-full h-full object-cover rounded-xl" />
               {/* Light overlay layer */}
               <div
                 className={`absolute inset-0 rounded-xl transition-opacity duration-300 ${
@@ -183,11 +183,11 @@ export default function HotelAutomation() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
           <motion.figure variants={itemReveal} className="order-2 md:order-1">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
-              <motion.img src="hotelauto.jpg" alt="Hotel room automation" className="absolute inset-0 h-full w-full object-cover" initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }} />
+              <motion.img src="/hotel-automation/hotelauto.jpg" alt="Hotel room automation" className="absolute inset-0 h-full w-full object-cover" initial={{ scale: 1 }} whileHover={{ scale: 1.05 }} transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }} />
             </div>
           </motion.figure>
           <motion.div variants={itemReveal} className="order-1 md:order-2">
-            <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Key capabilities</h2>
+            <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Key capabilities</h2>
             <ul className="mt-4 sm:mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs sm:text-sm">
               <li className="flex items-start sm:items-center gap-2 rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-2.5 sm:p-3 text-[color:var(--brand-text)]"><Sparkles size={14} className="sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5 sm:mt-0" /><span className="leading-snug">Welcome scenes & guest presets</span></li>
               <li className="flex items-start sm:items-center gap-2 rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-2.5 sm:p-3 text-[color:var(--brand-text)]"><KeySquare size={14} className="sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5 sm:mt-0" /><span className="leading-snug">Mobile keys & access control</span></li>

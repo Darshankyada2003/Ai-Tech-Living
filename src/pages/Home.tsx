@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import heroImage from "../assets/HomeWorks.png";
-import heroVideo from "../assets/smaple.mp4";
+const heroImage = "/home/hero.png";
+const heroVideo = "/home/hero-video.mp4";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AccordionFAQ from "../components/AccordionFAQ";
@@ -337,7 +337,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
                         <div ref={section1TextRef}>
                             <p className="uppercase tracking-widest text-[color:var(--brand-muted)] text-xs mb-2 sm:mb-3">Luxury Automated Blinds</p>
-                            <h2 className="text-[color:var(--brand-text)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 sm:mb-5">
+                            <h2 className="text-[color:var(--brand-heading)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-3 sm:mb-5">
                                 The purest expression of modern living
                             </h2>
                             <p className="text-[color:var(--brand-muted)] text-sm sm:text-base md:text-lg mb-6 sm:mb-8">
@@ -356,7 +356,7 @@ export default function Home() {
                         <div ref={section1ImageRef}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5 parallax-tilt ai-glow">
                                 <img
-                                    src="mordenliving.jpg"
+                                    src="/home/mordenliving.jpg"
                                     alt="Lifestyle interior"
                                     className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                 />
@@ -371,14 +371,14 @@ export default function Home() {
                     className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
                 >
                     <div className="container-narrow py-8 sm:py-10 md:py-12">
-                        <h2 className="text-[color:var(--brand-text)] text-lg sm:text-xl font-semibold">Stories</h2>
+                        <h2 className="text-[color:var(--brand-heading)] text-lg sm:text-xl font-semibold">Stories</h2>
                         <div ref={storyCardsRef} className="mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                             {/* Card 1 */}
                             <article>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src="story1.jpg"
+                                            src="/home/story1.jpg"
                                             alt="Story 1"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -397,7 +397,7 @@ export default function Home() {
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src="story2.jpg"
+                                            src="/home/story2.jpg"
                                             alt="Story 2"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -416,7 +416,7 @@ export default function Home() {
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
                                         <img
-                                            src="story3.jpg"
+                                            src="/home/story3.jpg"
                                             alt="Story 3"
                                             className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                         />
@@ -441,13 +441,13 @@ export default function Home() {
                     <figure>
                         <div className="relative w-full overflow-hidden rounded-lg sm:rounded-xl border border-black/10">
                             <img
-                                src="homesection.jpg"
+                                src="/home/homesection.jpg"
                                 alt="Kitchen and dining with natural light"
                                 className="gsap-image-hover h-96 w-full object-cover"
                             />
                         </div>
                         <figcaption className="mt-4 sm:mt-6 max-w-2xl">
-                            <h3 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Underline space with light</h3>
+                            <h3 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Underline space with light</h3>
                             <p className="mt-2 sm:mt-3 text-[color:var(--brand-muted)] text-sm sm:text-base leading-6 sm:leading-7">
                                 Discover the advantages of native, tunable lighting and redefine expectations for what light in the home should be.
                                 Intelligent lighting delivers a level of control and customization never before possible.
@@ -463,26 +463,26 @@ export default function Home() {
                     className="container-narrow py-8 sm:py-12 md:py-14"
                 >
                     <header className="max-w-2xl">
-                        <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Why AiTech Living</h2>
+                        <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Why AiTech Living</h2>
                         <p className="mt-2 sm:mt-3 text-[color:var(--brand-muted)] text-sm sm:text-base leading-6 sm:leading-7">
                             Seamless control, elegant design, and reliable performance — all working together to make homes smarter, safer, and more comfortable.
                         </p>
                     </header>
                     <div ref={featureCardsRef} className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                         <article className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5">
-                            <h3 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Adaptive Automation</h3>
+                            <h3 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Adaptive Automation</h3>
                             <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Schedules and scenes that learn routines and adjust to natural light.</p>
                         </article>
                         <article className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5">
-                            <h3 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Effortless Control</h3>
+                            <h3 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Effortless Control</h3>
                             <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Intuitive apps, voice assistants, and elegant keypads for every room.</p>
                         </article>
                         <article className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5">
-                            <h3 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Whole‑Home Reliability</h3>
+                            <h3 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Whole‑Home Reliability</h3>
                             <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Pro‑grade hardware and secure local control keep your system responsive.</p>
                         </article>
                         <article className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-5">
-                            <h3 className="text-[color:var(--brand-text)] text-sm sm:text-base font-semibold">Design‑Led Finish</h3>
+                            <h3 className="text-[color:var(--brand-heading)] text-sm sm:text-base font-semibold">Design‑Led Finish</h3>
                             <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">Materials and profiles that complement premium interiors and architecture.</p>
                         </article>
                     </div>
@@ -494,7 +494,7 @@ export default function Home() {
                     className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
                 >
                     <div className="container-narrow py-8 sm:py-12 md:py-14">
-                        <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">How it works</h2>
+                        <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">How it works</h2>
                         <ol ref={stepsRef} className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 list-none">
                             <li className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-6">
                                 <p className="text-[10px] uppercase tracking-widest opacity-70">Step 1</p>
@@ -524,7 +524,7 @@ export default function Home() {
                         <figure ref={intelligentImageRef}>
                             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
                                 <img
-                                    src="underline.jpg"
+                                    src="/home/underline.jpg"
                                     alt="Modern living room with automated blinds and lighting"
                                     className="gsap-image-hover absolute inset-0 h-full w-full object-cover"
                                 />
@@ -532,7 +532,7 @@ export default function Home() {
                             <figcaption className="sr-only">A showcase of AiTech Living automation in a contemporary home.</figcaption>
                         </figure>
                         <div ref={intelligentContentRef}>
-                            <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Intelligent home automation, beautifully integrated</h2>
+                            <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Intelligent home automation, beautifully integrated</h2>
                             <p className="mt-2 sm:mt-3 text-[color:var(--brand-muted)] text-sm sm:text-base leading-6 sm:leading-7">
                                 From sunrise to evening wind‑down, AiTech Living orchestrates light, blinds, and ambience so your home feels effortless every day.
                             </p>
@@ -561,18 +561,18 @@ export default function Home() {
                     className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
                 >
                     <div className="container-narrow py-8 sm:py-12 md:py-14">
-                        <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">What clients say</h2>
+                        <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">What clients say</h2>
                         <div ref={testimonialCardsRef} className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                             <figure className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-6">
-                                <blockquote className="text-[color:var(--brand-text)] text-sm sm:text-base leading-6 sm:leading-7">"Rooms feel calmer and brighter — automations just work in the background."</blockquote>
+                                <blockquote className="text-[color:var(--brand-heading)] text-sm sm:text-base leading-6 sm:leading-7">"Rooms feel calmer and brighter — automations just work in the background."</blockquote>
                                 <figcaption className="mt-2 sm:mt-3 text-[10px] uppercase tracking-widest opacity-70">Homeowner, Kensington</figcaption>
                             </figure>
                             <figure className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-6">
-                                <blockquote className="text-[color:var(--brand-text)] text-sm sm:text-base leading-6 sm:leading-7">"They coordinated with our contractor and delivered a flawless finish."</blockquote>
+                                <blockquote className="text-[color:var(--brand-heading)] text-sm sm:text-base leading-6 sm:leading-7">"They coordinated with our contractor and delivered a flawless finish."</blockquote>
                                 <figcaption className="mt-2 sm:mt-3 text-[10px] uppercase tracking-widest opacity-70">Interior Designer, Chelsea</figcaption>
                             </figure>
                             <figure className="rounded-lg sm:rounded-xl border border-black/10 bg-white/60 p-4 sm:p-6">
-                                <blockquote className="text-[color:var(--brand-text)] text-sm sm:text-base leading-6 sm:leading-7">"Lighting scenes transform the space — mornings and evenings feel different."</blockquote>
+                                <blockquote className="text-[color:var(--brand-heading)] text-sm sm:text-base leading-6 sm:leading-7">"Lighting scenes transform the space — mornings and evenings feel different."</blockquote>
                                 <figcaption className="mt-2 sm:mt-3 text-[10px] uppercase tracking-widest opacity-70">Architect, Marylebone</figcaption>
                             </figure>
                         </div>
@@ -584,7 +584,7 @@ export default function Home() {
                     ref={faqRef}
                     className="container-narrow py-8 sm:py-12 md:py-14"
                 >
-                    <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Frequently asked questions</h2>
+                    <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Frequently asked questions</h2>
                     <div className="mt-4 sm:mt-6">
                         <AccordionFAQ
                             items={[
@@ -604,7 +604,7 @@ export default function Home() {
                 >
                     <div className="container-narrow py-8 sm:py-12 md:py-14 ">
                         <div className="max-w-2xl">
-                            <h2 className="text-[color:var(--brand-text)] text-xl sm:text-2xl md:text-3xl font-semibold">Ready to shape light and comfort?</h2>
+                            <h2 className="text-[color:var(--brand-heading)] text-xl sm:text-2xl md:text-3xl font-semibold">Ready to shape light and comfort?</h2>
                             <p className="mt-2 sm:mt-3 text-[color:var(--brand-muted)] text-sm sm:text-base leading-6 sm:leading-7">Book a consultation and explore a system designed for the way you live.</p>
                             <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                                 <button 

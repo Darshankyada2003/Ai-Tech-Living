@@ -20,37 +20,37 @@ export default function Services() {
         {
             title: "Intelligent Lighting",
             desc: "Human‑centric, tunable lighting that adapts to your routine and mood.",
-            img: "sampleservice.jpg",
+            img: "/services/sampleservice.jpg",
             alt: "Intelligent lighting in a living room",
         },
         {
             title: "Climate Control",
             desc: "AI‑assisted heating and cooling for comfort with lower energy use.",
-            img: "connect.jpg",
+            img: "/services/connect.jpg",
             alt: "Smart climate control across the home",
         },
         {
             title: "Security & Access",
             desc: "Unified cameras, sensors, and smart locks with proactive alerts.",
-            img: "homesection.jpg",
+            img: "/services/homesection.jpg",
             alt: "Modern home security and access",
         },
         {
             title: "Automated Shades",
             desc: "Elegantly control daylight and privacy—timed, sensor‑based, or voice.",
-            img: "story1.jpg",
+            img: "/services/story1.jpg",
             alt: "Automated shades and blinds",
         },
         {
             title: "Voice & Scenes",
             desc: "One phrase sets the mood—lights, music, temperature, and more.",
-            img: "underline.jpg",
+            img: "/services/underline.jpg",
             alt: "Voice scenes for the smart home",
         },
         {
             title: "Energy Optimization",
             desc: "Insights and automation to reduce costs and environmental impact.",
-            img: "story3.jpg",
+            img: "/services/story3.jpg",
             alt: "Energy optimization dashboard",
         },
     ];
@@ -68,7 +68,7 @@ export default function Services() {
             <section
                 className="relative min-h-[50vh] md:min-h-[90vh] flex items-end"
                 style={{
-                    backgroundImage: `url(servicepage.jpg)`,
+                    backgroundImage: `url(/services/servicepage.jpg)`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
@@ -108,7 +108,7 @@ export default function Services() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
             >
-                <h2 className="text-2xl md:text-4xl font-semibold text-[color:var(--brand-text)]">Our Services</h2>
+                <h2 className="text-2xl md:text-4xl font-semibold text-[color:var(--brand-heading)]">Our Services</h2>
                 <p className="mt-2 text-[color:var(--brand-muted)] max-w-2xl">
                     Tailored solutions that integrate design, hardware, and software—installed by professionals and
                     tuned for your lifestyle.
@@ -131,7 +131,7 @@ export default function Services() {
                                 />
                             </div>
                             <div className="p-6">
-                                <h3 className="text-lg md:text-xl font-semibold text-[color:var(--brand-text)]">{item.title}</h3>
+                                <h3 className="text-lg md:text-xl font-semibold text-[color:var(--brand-heading)]">{item.title}</h3>
                                 <p className="mt-2 text-[color:var(--brand-muted)]">{item.desc}</p>
                             </div>
                         </motion.article>
@@ -169,7 +169,7 @@ export default function Services() {
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                     <motion.div variants={itemReveal}>
-                        <h3 className="text-[color:var(--brand-text)] text-2xl md:text-3xl font-semibold">How we bring it to life</h3>
+                        <h3 className="text-[color:var(--brand-heading)] text-2xl md:text-3xl font-semibold">How we bring it to life</h3>
                         <ol className="mt-5 space-y-4 text-[color:var(--brand-text)]">
                             <motion.li className="flex gap-4" variants={itemReveal}>
                                 <span className="h-8 w-8 shrink-0 grid place-items-center rounded-full bg-black/90 text-white">1</span>
@@ -207,7 +207,7 @@ export default function Services() {
                     <motion.div variants={itemReveal}>
                         <div className="relative aspect:[16/10] md:aspect-[16/10] w-full overflow-hidden rounded-xl border border-black/10 bg-black/5">
                             <motion.img
-                                src="servicepage.jpg"
+                                src="/services/servicepage.jpg"
                                 alt="Installation and setup"
                                 className="absolute inset-0 h-full w-full object-cover"
                                 initial={{ scale: 1 }}

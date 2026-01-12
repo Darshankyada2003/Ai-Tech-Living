@@ -33,7 +33,7 @@ export default function Contact() {
 			<div className="mt-10 grid gap-8 md:grid-cols-2">
 				{/* Contact details */}
 				<motion.div className="rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] p-6 md:p-7" variants={itemReveal}>
-					<h2 className="text-xl font-semibold text-[color:var(--brand-text)]">Contact details</h2>
+					<h2 className="text-xl font-semibold text-[color:var(--brand-heading)]">Contact details</h2>
 					<ul className="mt-4 space-y-3 text-sm">
 						<li className="flex items-start gap-3">
 							<span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/70 border border-black/10">
