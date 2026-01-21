@@ -366,14 +366,13 @@ export default function Home() {
                 </section>
 
                 {/* Stories section */}
-                <section
+                {/* <section
                     ref={storiesSectionRef}
                     className="bg-[color:var(--brand-surface)]/50 border-y border-black/10"
                 >
                     <div className="container-narrow py-8 sm:py-10 md:py-12">
                         <h2 className="text-[color:var(--brand-heading)] text-lg sm:text-xl font-semibold">Stories</h2>
                         <div ref={storyCardsRef} className="mt-4 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-                            {/* Card 1 */}
                             <article>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
@@ -384,15 +383,14 @@ export default function Home() {
                                         />
                                     </div>
                                     <figcaption>
-                                        <p className="mt-2 sm:mt-3 text-[10px] uppercase tracking-widest opacity-70">Lutron | Orluna</p>
+                                        <p className="mt-2 sm:mt-3 text-[10px] uppercase tracking-widest opacity-70">AiTech Living</p>
                                         <p className="mt-1 sm:mt-2 text-[color:var(--brand-muted)] text-xs sm:text-sm leading-5 sm:leading-6">
-                                            We're pleased to announce the acquisition of Orluna LED Technologies, a UK-based manufacturer of architectural lighting.
+                                            AiTech Living is a leading provider of home automation solutions, offering a wide range of products and services to enhance your living experience.
                                         </p>
                                     </figcaption>
                                 </figure>
                             </article>
 
-                            {/* Card 2 */}
                             <article>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
@@ -411,7 +409,6 @@ export default function Home() {
                                 </figure>
                             </article>
 
-                            {/* Card 3 */}
                             <article>
                                 <figure>
                                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-black/10">
@@ -431,7 +428,7 @@ export default function Home() {
                             </article>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Large feature image with text + CTA */}
                 <section

@@ -74,7 +74,7 @@ export default function HotelAutomation() {
                 <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[color:var(--brand-overlay-light)] flex items-center justify-center flex-shrink-0">
                   <span className="text-[color:var(--brand-text)] text-[10px] sm:text-xs font-medium">EW</span>
                 </div>
-                <span className="text-[color:var(--brand-text)] font-medium text-xs sm:text-sm">Emma Whyson</span>
+                <span className="text-[color:var(--brand-text)] font-medium text-xs sm:text-sm">Smit Rajani</span>
               </div>
             </motion.div>
           </motion.div>

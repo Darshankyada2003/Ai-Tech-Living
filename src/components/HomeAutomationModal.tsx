@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
 import { X, Home, Lightbulb, Shield, Phone, Mail, Sun, Moon, Volume2, VolumeX } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface HomeAutomationModalProps {
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface HomeAutomationModalProps {
 }
 
 export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationModalProps) {
+  const navigate = useNavigate();
   const [activeRoom, setActiveRoom] = useState("bedroom");
   const [lightsOn, setLightsOn] = useState(true);
   const [blindsOpen, setBlindsOpen] = useState(true);
@@ -16,33 +18,33 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
   const [musicPlaying, setMusicPlaying] = useState(false);
 
   const rooms = [
-    { 
-      id: "bedroom", 
-      name: "Master Bedroom", 
+    {
+      id: "bedroom",
+      name: "Master Bedroom",
       icon: Home,
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center",
       lights: 4,
       temperature: 22
     },
-    { 
-      id: "living-room", 
-      name: "Living Room", 
+    {
+      id: "living-room",
+      name: "Living Room",
       icon: Home,
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center",
       lights: 6,
       temperature: 24
     },
-    { 
-      id: "kitchen", 
-      name: "Kitchen", 
+    {
+      id: "kitchen",
+      name: "Kitchen",
       icon: Home,
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center",
       lights: 3,
       temperature: 20
     },
-    { 
-      id: "office", 
-      name: "Home Office", 
+    {
+      id: "office",
+      name: "Home Office",
       icon: Home,
       image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center",
       lights: 2,
@@ -103,16 +105,14 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                   <img
                     src={currentRoom?.image}
                     alt={currentRoom?.name}
-                    className={`w-full h-full object-cover transition-all duration-500 ${
-                      lightsOn ? 'brightness-100' : 'brightness-30'
-                    }`}
+                    className={`w-full h-full object-cover transition-all duration-500 ${lightsOn ? 'brightness-100' : 'brightness-30'
+                      }`}
                   />
-                  
+
                   {/* Dark Overlay when lights off */}
-                  <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${
-                    lightsOn ? 'opacity-0' : 'opacity-40'
-                  }`} />
-                  
+                  <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${lightsOn ? 'opacity-0' : 'opacity-40'
+                    }`} />
+
                   {/* Room Info Overlay */}
                   <div className="absolute top-2 left-2 right-2 sm:top-3 sm:left-3 sm:right-3">
                     <div className="bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3">
@@ -155,11 +155,10 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                     {rooms.map((room) => (
                       <motion.button
                         key={room.id}
-                        className={`p-1.5 sm:p-2 rounded-lg border-2 transition-all text-left ${
-                          activeRoom === room.id
+                        className={`p-1.5 sm:p-2 rounded-lg border-2 transition-all text-left ${activeRoom === room.id
                             ? "border-blue-500 bg-blue-50 text-blue-700"
                             : "border-gray-200 hover:border-gray-300 text-gray-700 bg-white"
-                        }`}
+                          }`}
                         onClick={() => setActiveRoom(room.id)}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -183,16 +182,14 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                         <span className="text-xs sm:text-sm font-medium text-gray-800">Lights</span>
                       </div>
                       <motion.button
-                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${
-                          lightsOn ? 'bg-blue-500' : 'bg-gray-300'
-                        }`}
+                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${lightsOn ? 'bg-blue-500' : 'bg-gray-300'
+                          }`}
                         onClick={() => setLightsOn(!lightsOn)}
                         whileTap={{ scale: 0.95 }}
                       >
                         <motion.div
-                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${
-                            lightsOn ? 'ml-1.1' : 'ml-0.5'
-                          }`}
+                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${lightsOn ? 'ml-1.1' : 'ml-0.5'
+                            }`}
                           animate={{ x: lightsOn ? 20 : 2 }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
@@ -211,16 +208,14 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                         <span className="text-xs sm:text-sm font-medium text-gray-800">Window Blinds</span>
                       </div>
                       <motion.button
-                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${
-                          blindsOpen ? 'bg-orange-500' : 'bg-gray-300'
-                        }`}
+                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${blindsOpen ? 'bg-orange-500' : 'bg-gray-300'
+                          }`}
                         onClick={() => setBlindsOpen(!blindsOpen)}
                         whileTap={{ scale: 0.95 }}
                       >
                         <motion.div
-                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${
-                            blindsOpen ? 'ml-1.1' : 'ml-0.5'
-                          }`}
+                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${blindsOpen ? 'ml-1.1' : 'ml-0.5'
+                            }`}
                           animate={{ x: blindsOpen ? 20 : 2 }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
@@ -239,16 +234,14 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                         <span className="text-xs sm:text-sm font-medium text-gray-800">Ambient Music</span>
                       </div>
                       <motion.button
-                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${
-                          musicPlaying ? 'bg-green-500' : 'bg-gray-300'
-                        }`}
+                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${musicPlaying ? 'bg-green-500' : 'bg-gray-300'
+                          }`}
                         onClick={() => setMusicPlaying(!musicPlaying)}
                         whileTap={{ scale: 0.95 }}
                       >
                         <motion.div
-                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${
-                            musicPlaying ? 'ml-1.1' : 'ml-0.5'
-                          }`}
+                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${musicPlaying ? 'ml-1.1' : 'ml-0.5'
+                            }`}
                           animate={{ x: musicPlaying ? 20 : 2 }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
@@ -267,16 +260,14 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                         <span className="text-xs sm:text-sm font-medium text-gray-800">Security System</span>
                       </div>
                       <motion.button
-                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${
-                          securityArmed ? 'bg-red-500' : 'bg-gray-300'
-                        }`}
+                        className={`w-10 h-5 sm:w-12 sm:h-6 rounded-full transition-colors ${securityArmed ? 'bg-red-500' : 'bg-gray-300'
+                          }`}
                         onClick={() => setSecurityArmed(!securityArmed)}
                         whileTap={{ scale: 0.95 }}
                       >
                         <motion.div
-                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${
-                            securityArmed ? 'ml-1.1' : 'ml-0.5'
-                          }`}
+                          className={`w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-full shadow-md ${securityArmed ? 'ml-1.1' : 'ml-0.5'
+                            }`}
                           animate={{ x: securityArmed ? 20 : 2 }}
                           transition={{ type: "spring", stiffness: 500, damping: 30 }}
                         />
@@ -289,24 +280,24 @@ export default function HomeAutomationModal({ isOpen, onClose }: HomeAutomationM
                 </div>
 
                 {/* Contact Section */}
-                <div className="mt-3 sm:mt-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg sm:rounded-xl p-2.5 sm:p-3 text-white">
-                  <h4 className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2">Ready to automate your home?</h4>
-                  <div className="flex gap-1.5 sm:gap-2">
+                <div className="mt-3 sm:mt-4 bg-gradient-to-r from-[color:var(--brand-primary-start)] to-[color:var(--brand-primary-end)] rounded-lg sm:rounded-xl p-2.5 sm:p-3 text-white">
+                  <h4
+                    className="text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2"
+                    style={{ color: "#ffffff" }}
+                  >
+                    Ready to automate your home?
+                  </h4>
+                  <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2">
                     <motion.button
-                      className="flex-1 bg-white/20 hover:bg-white/30 rounded-md sm:rounded-lg p-1.5 sm:p-2 text-xs font-medium transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      type="button"
+                      whileTap={{ scale: 0.97 }}
+                      className="w-full sm:w-auto px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white text-[color:var(--brand-primary-end)] text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 text-center"
+                      onClick={() => {
+                        onClose();
+                        navigate("/contact");
+                      }}
                     >
-                      <Phone size={12} className="sm:w-3.5 sm:h-3.5 inline mr-1" />
-                      Call Now
-                    </motion.button>
-                    <motion.button
-                      className="flex-1 bg-white/20 hover:bg-white/30 rounded-md sm:rounded-lg p-1.5 sm:p-2 text-xs font-medium transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Mail size={12} className="sm:w-3.5 sm:h-3.5 inline mr-1" />
-                      Email
+                      Book a consultation
                     </motion.button>
                   </div>
                 </div>

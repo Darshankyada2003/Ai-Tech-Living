@@ -318,12 +318,12 @@ export default function HomeAutomation() {
         </header>
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
           {[
-            "Lutron lighting and keypads",
-            "KNX and DALI controls",
+            "AiTech Living lighting and keypads",
+            "AiTech Living controls",
             "Apple Home, Alexa, and Google",
-            "Motorized shades and curtains",
-            "Multi‑room audio (Sonos, AirPlay)",
-            "CCTV, sensors, and smart locks",
+            "AiTech Living shades and curtains",
+            "AiTech Living audio (Sonos, AirPlay)",
+            "AiTech Living CCTV, sensors, and smart locks",
           ].map((item, i) => (
             <motion.div
               key={i}

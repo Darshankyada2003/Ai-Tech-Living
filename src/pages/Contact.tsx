@@ -30,44 +30,58 @@ export default function Contact() {
 				</p>
 			</motion.div>
 
-			<div className="mt-10 grid gap-8 md:grid-cols-2">
+			<div className="mt-10 grid gap-8 md:grid-cols-2 items-stretch">
 				{/* Contact details */}
-				<motion.div className="rounded-2xl border border-black/10 bg-[color:var(--brand-surface)] p-6 md:p-7" variants={itemReveal}>
-					<h2 className="text-xl font-semibold text-[color:var(--brand-heading)]">Contact details</h2>
-					<ul className="mt-4 space-y-3 text-sm">
+				<motion.div
+					className="h-full rounded-3xl border border-[color:var(--brand-border)] bg-[color:var(--brand-surface)]/95 p-6 md:p-8 shadow-lg shadow-[rgba(37,99,235,0.12)] flex flex-col"
+					variants={itemReveal}
+				>
+					<h2 className="text-2xl md:text-3xl font-semibold text-[color:var(--brand-heading)] tracking-tight">
+						Contact details
+					</h2>
+					<p className="mt-2 text-sm md:text-base text-[color:var(--brand-muted)]">
+						Reach us directly for projects, support, or partnership enquiries.
+					</p>
+					<ul className="mt-5 space-y-4 text-sm md:text-base">
 						<li className="flex items-start gap-3">
-							<span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/70 border border-black/10">
-								<Mail size={16} />
+							<span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 border border-black/10 shadow-sm">
+								<Mail size={18} />
 							</span>
 							<div>
-								<p className="font-medium text-[color:var(--brand-text)]">Email</p>
-								<p className="text-[color:var(--brand-muted)]">aitechliving@gmail.com</p>
+								<p className="font-semibold text-[color:var(--brand-text)]">Email</p>
+								<p className="text-[color:var(--brand-muted)] break-words">
+									ai.tech.living@gmail.com
+								</p>
 							</div>
 						</li>
 						<li className="flex items-start gap-3">
-							<span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/70 border border-black/10">
-								<Phone size={16} />
+							<span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 border border-black/10 shadow-sm">
+								<Phone size={18} />
 							</span>
 							<div>
-								<p className="font-medium text-[color:var(--brand-text)]">Phone</p>
-								<p className="text-[color:var(--brand-muted)]">Smit Rajani, +91 9033313096</p>
+								<p className="font-semibold text-[color:var(--brand-text)]">Phone</p>
+								<p className="text-[color:var(--brand-muted)]">+91 9099909518</p>
 							</div>
 						</li>
 						<li className="flex items-start gap-3">
-							<span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/70 border border-black/10">
-								<MapPin size={16} />
+							<span className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 border border-black/10 shadow-sm">
+								<MapPin size={18} />
 							</span>
 							<div>
-								<p className="font-medium text-[color:var(--brand-text)]">Office</p>
-								<p className="text-[color:var(--brand-muted)]">Rajkot, Gujarat, India</p>
+								<p className="font-semibold text-[color:var(--brand-text)]">Office</p>
+								<p className="text-[color:var(--brand-muted)] text-sm md:text-base leading-relaxed">
+									205, Second Floor, Kalptaru Complex, Nr. Indira Circle, University Road 360005
+								</p>
 							</div>
 						</li>
 					</ul>
-					<p className="mt-6 text-xs text-[color:var(--brand-muted)]">Business hours: Mon–Fri, 9:00–18:00</p>
+					<p className="mt-6 text-xs md:text-sm text-[color:var(--brand-muted)]">
+						Business hours: <span className="font-medium text-[color:var(--brand-text)]">Mon–Sun, 9:00–18:00</span>
+					</p>
 				</motion.div>
 
 				{/* Contact form */}
-				<motion.form className="rounded-2xl border border-black/10 p-6 md:p-7 space-y-4 bg-white/70" variants={itemReveal}>
+				<motion.form className="h-full rounded-2xl border border-black/10 p-6 md:p-7 space-y-4 bg-white/70 flex flex-col" variants={itemReveal}>
 					<div>
 						<label htmlFor="name" className="mb-1.5 block text-sm font-medium text-[color:var(--brand-text)]">Full name</label>
 						<input id="name" name="name" required type="text" placeholder="Your name" className="w-full p-3 rounded-xl bg-[color:var(--brand-surface)] border border-black/10 text-[color:var(--brand-text)] placeholder-[color:var(--brand-muted)] focus:outline-none focus:ring-2 focus:ring-black/20" />
@@ -86,7 +100,7 @@ export default function Contact() {
 							<input id="phone" name="phone" type="tel" placeholder="+1 555 000 0000" className="w-full p-3 rounded-xl bg-[color:var(--brand-surface)] border border-black/10 text-[color:var(--brand-text)] placeholder-[color:var(--brand-muted)] focus:outline-none focus:ring-2 focus:ring-black/20" />
 						</div>
 					</div>
-					<div>
+					<div className="flex-1">
 						<label htmlFor="message" className="mb-1.5 block text-sm font-medium text-[color:var(--brand-text)]">Message</label>
 						<textarea id="message" name="message" required rows={5} placeholder="Tell us a bit about your needs" className="w-full p-3 rounded-xl bg-[color:var(--brand-surface)] border border-black/10 text-[color:var(--brand-text)] placeholder-[color:var(--brand-muted)] focus:outline-none focus:ring-2 focus:ring-black/20"></textarea>
 					</div>
